@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { work } from "@/lib/content";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import { SectionLabel } from "./SectionLabel";
@@ -34,13 +35,12 @@ function CardShell({
 function Media({ item, className = "" }: { item: WorkItem; className?: string }) {
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={item.image}
         alt={item.imageAlt}
-        loading="lazy"
-        decoding="async"
-        className="h-full w-full object-cover transition-transform duration-[900ms] ease-out will-change-transform group-hover:scale-[1.06]"
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover transition-transform duration-[900ms] ease-out will-change-transform group-hover:scale-[1.06]"
       />
       {/* warm duotone wash + bottom scrim for legibility */}
       <div

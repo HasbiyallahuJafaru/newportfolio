@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { about, profile, whatsappUrl } from "@/lib/content";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import { SectionLabel } from "./SectionLabel";
@@ -38,14 +39,14 @@ export function About() {
 
             {/* matted frame */}
             <div className="relative overflow-hidden rounded-[1.75rem] border border-line bg-raised p-2 shadow-2xl shadow-black/50">
-              <div className="relative overflow-hidden rounded-[1.4rem] ring-1 ring-cream/10">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[1.4rem] ring-1 ring-cream/10">
+                <Image
                   src="/Hasbiyallahu.png"
-                  alt={`${profile.name} — ${profile.role}`}
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-[3/4] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  alt={`${profile.name} — ${profile.role}, Web Designer & Developer in Nigeria`}
+                  fill
+                  sizes="(max-width: 768px) 340px, 400px"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  priority={false}
                 />
                 {/* warm wash + bottom scrim */}
                 <div

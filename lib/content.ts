@@ -93,7 +93,7 @@ export const work = {
       category: "Web Design · Non-Profit",
       body: "A full website for a non-profit — communicating mission, programs and impact with clarity and warmth. Built to build trust.",
       image: "/images/work-crediblehope.jpg",
-      imageAlt: "Screenshot of the Credible Hope Foundation website",
+      imageAlt: "Credible Hope Foundation nonprofit website designed by Hasbiyallahu Jafaru — warm, mission-driven web design",
       action: { label: "Visit Site", href: "https://crediblehopefoundation.org" },
     },
     {
@@ -102,7 +102,7 @@ export const work = {
       category: "Web App · Bookings",
       body: "A full-featured online booking platform — streamlining scheduling, capacity, and delivering a frictionless UX for operators and users alike.",
       image: "/images/work-inbookings.jpg",
-      imageAlt: "Screenshot of the InBookings Online website",
+      imageAlt: "InBookings Online — booking platform web app built by Hasbiyallahu Jafaru, full-stack developer",
       action: { label: "Visit Site", href: "https://inbookingsonline.com" },
     },
     {
@@ -112,7 +112,7 @@ export const work = {
       body: "An end-to-end Telegram sales bot — catalogue browsing, order management, and Paystack payment collection. Zero friction for seller and buyer.",
       image: "/images/work-salesbot.jpg",
       imageAlt:
-        "A Telegram sales bot chat — product catalogue, order, and Paystack payment",
+        "Telegram sales bot with Paystack payment integration built by Hasbiyallahu Jafaru — e-commerce automation",
       action: { label: "Private Project", href: null },
     },
     {
@@ -121,7 +121,7 @@ export const work = {
       category: "AI Copilot · SaaS",
       body: "An AI-powered interview copilot — real-time coaching, mock interviews, answer scoring, and document analysis, wrapped in a clean, conversion-focused marketing site.",
       image: "/images/work-zoomguru.jpg",
-      imageAlt: "Screenshot of the ZoomGuru website",
+      imageAlt: "ZoomGuru AI interview copilot SaaS website — designed by Hasbiyallahu Jafaru, web application developer",
       action: { label: "Visit Site", href: "https://zoomguru.xyz" },
     },
   ],

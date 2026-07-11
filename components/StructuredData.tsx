@@ -108,7 +108,47 @@ export function StructuredData() {
         }
       : null;
 
-  const schemas: Record<string, unknown>[] = [person, website, professionalService, breadcrumb];
+  // ── FAQPage — powers "People also ask" rich results ──
+  const faq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What services do you offer as a web designer and developer?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "I offer three core services: custom UI/UX website design, full-stack web application development (booking systems, dashboards, e-commerce), and Telegram bot development with Paystack payment integration.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How much does a website or Telegram bot cost?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Websites and Telegram bots start at $500 USD. The final price depends on scope, features, and timeline. Every project includes custom design, responsive build, payment integration, clean code, revisions, and deployment.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do you integrate Paystack payments in websites and Telegram bots?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. I build Paystack payment integration into websites, web applications, and Telegram bots — customers can pay and receive receipts without manual effort.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How can I contact you for a project?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You can reach me via WhatsApp, email, or phone. I usually reply within a few hours. Visit the contact section on my portfolio to get in touch.",
+        },
+      },
+    ],
+  };
+
+  const schemas: Record<string, unknown>[] = [person, website, professionalService, breadcrumb, faq];
   if (reviewSchema) schemas.push(reviewSchema);
 
   return (
