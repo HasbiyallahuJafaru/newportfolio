@@ -33,7 +33,8 @@ export default function NotFound() {
         {nav.map((item) => (
           <li key={item.href}>
             <Link
-              href={item.href}
+              href={`/${item.href}`}
+              scroll={true}
               className="rounded-full border border-line bg-raised/40 px-5 py-3 text-sm font-light text-muted transition-colors hover:border-bronze hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze/60"
             >
               {item.label}

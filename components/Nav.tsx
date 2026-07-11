@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { nav, profile, whatsappUrl } from "@/lib/content";
 
@@ -46,12 +47,13 @@ export function Nav() {
         <ul className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
             <li key={item.href}>
-              <a
+              <Link
                 href={item.href}
+                scroll={true}
                 className="text-[13px] font-light text-muted transition-colors duration-200 hover:text-cream focus-visible:text-cream focus-visible:outline-none"
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -104,13 +106,14 @@ export function Nav() {
             <ul className="flex flex-col gap-1 px-6 py-6">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
+                    scroll={true}
                     onClick={() => setOpen(false)}
                     className="block py-3 text-lg font-light text-muted transition-colors hover:text-cream"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li className="pt-3">
