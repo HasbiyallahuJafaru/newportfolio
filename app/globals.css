@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-dm-sans: "DM Sans", system-ui, sans-serif;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: #1a1816;
+  color: #faf8f5;
+  font-family: var(--font-dm-sans);
+  overflow-x: hidden;
+}
+
+/* Warm, branded selection */
+::selection {
+  background: #8c7355;
+  color: #faf8f5;
+}
+
+/* Slim custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #151311;
+}
+::-webkit-scrollbar-thumb {
+  background: #2e2b28;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8c7355;
+}
+
+/* Gradient text fill used for headlines */
+.text-gradient {
+  background: linear-gradient(180deg, #faf8f5 0%, #cbb9a3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Edge fade mask for the marquee */
+.mask-fade-x {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+/* Reduce all motion when the user asks for it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
