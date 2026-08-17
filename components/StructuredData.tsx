@@ -35,7 +35,7 @@ export function StructuredData() {
     "@type": "WebSite",
     name: `${profile.name} — ${profile.role}`,
     description:
-      "Bespoke websites, web applications, and Telegram automation. Clean code. Purposeful design. Real results.",
+      "Websites, web apps and Telegram bots that get your business found on Google and take the manual work off your team.",
     url: siteUrl,
     inLanguage: "en",
   };
@@ -118,7 +118,7 @@ export function StructuredData() {
         name: "What services do you offer as a web designer and developer?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "I offer three core services: custom UI/UX website design, full-stack web application development (booking systems, dashboards, e-commerce), and Telegram bot development with Paystack payment integration.",
+          text: "Three things: website design built to be found on Google, full-stack web applications (booking systems, dashboards, e-commerce) that let customers serve themselves, and Telegram bots that take orders and collect payments inside the chat.",
         },
       },
       {

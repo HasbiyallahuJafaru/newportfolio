@@ -87,7 +87,10 @@ function Caption({ item }: { item: WorkItem }) {
 }
 
 export function Work() {
-  const [featured, ...rest] = work.items;
+  // Every card the same size, no half-empty rows: the wide featured card only
+  // earns its place while the rest still fill whole rows of three.
+  const featured = (work.items.length - 1) % 3 === 0 ? work.items[0] : null;
+  const cards = featured ? work.items.slice(1) : work.items;
 
   return (
     <section
@@ -104,16 +107,20 @@ export function Work() {
       </Reveal>
 
       {/* Featured project — horizontal on desktop */}
-      <Reveal delay={0.05} className="mt-12">
-        <CardShell item={featured} className="md:grid md:grid-cols-2">
-          <Media item={featured} className="aspect-[16/11] md:aspect-auto" />
-          <Caption item={featured} />
-        </CardShell>
-      </Reveal>
+      {featured && (
+        <Reveal delay={0.05} className="mt-12">
+          <CardShell item={featured} className="md:grid md:grid-cols-2">
+            <Media item={featured} className="aspect-[16/11] md:aspect-auto" />
+            <Caption item={featured} />
+          </CardShell>
+        </Reveal>
+      )}
 
       {/* Remaining projects — responsive card grid */}
-      <RevealGroup className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {rest.map((item) => (
+      <RevealGroup
+        className={`grid gap-6 sm:grid-cols-2 lg:grid-cols-3 ${featured ? "mt-6" : "mt-12"}`}
+      >
+        {cards.map((item) => (
           <RevealItem key={item.no} className="h-full">
             <CardShell item={item} className="flex h-full flex-col">
               <Media item={item} className="aspect-[16/10]" />

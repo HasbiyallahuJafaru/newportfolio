@@ -28,10 +28,10 @@ export const nav = [
 
 export const hero = {
   eyebrow: profile.availability,
-  lineOne: "Your #1 plug for",
-  lineTwo: "Web Apps & Bots.",
+  lineOne: "Be easy to find,",
+  lineTwo: "easy to buy from.",
   subtitle:
-    "Clean code. Purposeful design. Real results — bespoke websites, web applications, and Telegram automation, delivered without compromise.",
+    "Websites, web apps and Telegram bots for businesses that want to show up on Google and stop losing hours to work their software should be doing.",
 };
 
 export const marquee = [
@@ -47,10 +47,10 @@ export const marquee = [
 
 export const about = {
   label: "About Me",
-  headline: ["Crafting digital", "experiences", "that endure."],
+  headline: ["Work that pays", "for itself", "after launch."],
   paragraphs: [
-    "I'm a developer and designer with a sharp focus on building web applications, bespoke websites, and Telegram automation tools that work flawlessly and look effortless.",
-    "Every project is treated with the same discipline — clean architecture, intentional design, and delivery that meets the brief without compromise.",
+    "I build the parts of a business your customers actually touch. The site they find when they search for what you sell, and the bot or booking page that takes the order and the payment while you are busy elsewhere.",
+    "Every project starts with the job you need done rather than what looks good in a portfolio. You get something fast, code any developer can pick up later, and a walkthrough so you are never locked out of your own site.",
   ],
   stats: [
     { value: "3+", label: "Years Active" },
@@ -60,25 +60,25 @@ export const about = {
 };
 
 export const services = {
-  label: "What I Build",
-  intro: "Three focused disciplines, executed with depth and precision.",
+  label: "What You Get",
+  intro: "Three ways to get found online and take the manual work off your team.",
   items: [
     {
       no: "01",
-      title: "UI / UX Design",
-      body: "Bespoke websites that balance beauty and function. From landing pages to full brand presences — every element considered.",
-      tags: ["UI / UX", "Responsive", "Brand"],
+      title: "Website Design",
+      body: "A site that loads fast on a phone, says what you do within one screen, and gives a stranger a reason to contact you. Built to be found on Google from the day it goes live.",
+      tags: ["UI / UX", "Responsive", "SEO"],
     },
     {
       no: "02",
       title: "Web App Development",
-      body: "Full-featured web apps built for scale. Booking systems, dashboards, e-commerce — engineered for real users.",
+      body: "Bookings, dashboards and online stores. The jobs your team does by hand become a form the customer fills in, with the payment collected on the spot.",
       tags: ["Full-Stack", "APIs", "Payments"],
     },
     {
       no: "03",
       title: "Telegram Bot Development",
-      body: "Custom bots that automate sales, support, and workflows. Integrated with Paystack and third-party services.",
+      body: "A bot that shows your catalogue, takes the order and collects payment through Paystack inside the chat. Receipts go out on their own, whether or not you are online.",
       tags: ["Paystack", "Automation"],
     },
   ],
@@ -91,7 +91,7 @@ export const work = {
       no: "01",
       title: "Credible Hope Foundation",
       category: "Web Design · Non-Profit",
-      body: "A full website for a non-profit — communicating mission, programs and impact with clarity and warmth. Built to build trust.",
+      body: "A donor-facing site for a non-profit. Mission, programmes and impact in plain language, so a first-time visitor understands who they are giving to.",
       image: "/images/work-crediblehope.jpg",
       imageAlt: "Credible Hope Foundation nonprofit website designed by Hasbiyallahu Jafaru — warm, mission-driven web design",
       action: { label: "Visit Site", href: "https://crediblehopefoundation.org" },
@@ -100,7 +100,7 @@ export const work = {
       no: "02",
       title: "InBookings Online",
       category: "Web App · Bookings",
-      body: "A full-featured online booking platform — streamlining scheduling, capacity, and delivering a frictionless UX for operators and users alike.",
+      body: "An online booking platform. Customers reserve and pay for themselves, and the operator watches capacity fill without answering a single call.",
       image: "/images/work-inbookings.jpg",
       imageAlt: "InBookings Online — booking platform web app built by Hasbiyallahu Jafaru, full-stack developer",
       action: { label: "Visit Site", href: "https://inbookingsonline.com" },
@@ -109,7 +109,7 @@ export const work = {
       no: "03",
       title: "Sales Bot",
       category: "Telegram Bot · E-Commerce",
-      body: "An end-to-end Telegram sales bot — catalogue browsing, order management, and Paystack payment collection. Zero friction for seller and buyer.",
+      body: "A Telegram sales bot. Customers browse the catalogue, order and pay with Paystack inside the chat, and the seller never has to confirm a transfer by hand.",
       image: "/images/work-salesbot.jpg",
       imageAlt:
         "Telegram sales bot with Paystack payment integration built by Hasbiyallahu Jafaru — e-commerce automation",
@@ -119,10 +119,40 @@ export const work = {
       no: "04",
       title: "ZoomGuru",
       category: "AI Copilot · SaaS",
-      body: "An AI-powered interview copilot — real-time coaching, mock interviews, answer scoring, and document analysis, wrapped in a clean, conversion-focused marketing site.",
+      body: "An AI interview copilot with real-time coaching, mock interviews and answer scoring, sold through a marketing site written to turn visitors into downloads.",
       image: "/images/work-zoomguru.jpg",
       imageAlt: "ZoomGuru AI interview copilot SaaS website — designed by Hasbiyallahu Jafaru, web application developer",
       action: { label: "Visit Site", href: "https://zoomguru.xyz" },
+    },
+    {
+      no: "05",
+      title: "Iklima Babangida",
+      category: "Web Design · Photography",
+      body: "A gallery-first portfolio for a fine art and documentary photographer. Full-bleed imagery, curated collections, and a CMS so she publishes a new series herself without calling a developer.",
+      image: "/images/work-iklimababangida.jpg",
+      imageAlt:
+        "Iklima Babangida fine art photography portfolio website designed by Hasbiyallahu Jafaru — full-bleed gallery web design",
+      action: { label: "Visit Site", href: "https://iklimababangida.com" },
+    },
+    {
+      no: "06",
+      title: "In Loving Memory",
+      category: "Web App · Memorial",
+      body: "A memorial page built for a grieving family. Friends submit tributes and photos from a phone, and every message is kept for the family as a permanent record.",
+      image: "/images/work-arctersoo.jpg",
+      imageAlt:
+        "In Loving Memory — online memorial and tribute web app built by Hasbiyallahu Jafaru, web application developer",
+      action: { label: "Visit Site", href: "https://arc-tersoo.netlify.app" },
+    },
+    {
+      no: "07",
+      title: "PDFGee",
+      category: "Web App · Document Tools",
+      body: "An offline-first PDF suite for editing, compressing, merging and signing documents. It installs as an app and runs locally, so sensitive files never leave the user's machine.",
+      image: "/images/work-pdfgee.jpg",
+      imageAlt:
+        "PDFGee offline PDF software — document tools web app built by Hasbiyallahu Jafaru, full-stack developer",
+      action: { label: "Visit Site", href: "https://pdfgee.com" },
     },
   ],
 };
@@ -155,16 +185,16 @@ export const pricing = {
   label: "Pricing",
   headline: ["Simple, honest", "pricing."],
   intro:
-    "Transparent rates with no surprises. Websites and Telegram bots start at a flat entry price — the final quote scales with scope.",
+    "One flat starting price, and a quote that only moves with scope. No hourly billing and no surprise invoice at handover.",
   startingAt: "$500",
   currencyNote: "USD · starting from",
   forText: "Websites & Telegram bots",
   includes: [
-    "Custom design & responsive build",
-    "Paystack / payment integration",
-    "Clean, maintainable code",
-    "Revisions until it's right",
-    "Deployment & handover",
+    "Custom design that holds up on every screen",
+    "Paystack payments set up and tested",
+    "Clean code any developer can pick up later",
+    "Revisions until you are happy with it",
+    "Launch, handover and a walkthrough so you can run it",
   ],
   footnote: "Final quote depends on scope, features, and timeline.",
   cta: "Start a Project",
@@ -172,7 +202,7 @@ export const pricing = {
 
 export const contact = {
   label: "Get in Touch",
-  headline: ["Let's build", "something", "together."],
-  body: "Have a project in mind? I'd love to hear about it. Reach out directly and let's make it real.",
+  headline: ["Tell me what's", "slowing you", "down."],
+  body: "A site nobody finds, or orders you are still logging by hand. Send me the details and I'll tell you what it takes to fix it and what it costs.",
   reply: "I usually reply within a few hours.",
 };

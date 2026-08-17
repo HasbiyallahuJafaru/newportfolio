@@ -20,7 +20,7 @@ const dmSans = localFont({
 const siteUrl = "https://hasbiyallahu.dev";
 const title = `${profile.name} — ${profile.role}`;
 const description =
-  "Bespoke websites, web applications, and Telegram automation. Clean code. Purposeful design. Real results.";
+  "Websites, web apps and Telegram bots that get your business found on Google and take the manual work off your team. Paystack payments included. Projects from $500.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

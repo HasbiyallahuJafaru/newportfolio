@@ -38,7 +38,7 @@ export function Hero() {
           aria-hidden
           disableRemotePlayback
         >
-          <source src="/hero.mp4" type="video/mp4" />
+          <source src="/images/hero.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
