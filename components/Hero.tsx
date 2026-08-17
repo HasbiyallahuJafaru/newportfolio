@@ -1,13 +1,49 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { hero, profile, whatsappUrl } from "@/lib/content";
 import { WhatsAppIcon } from "./icons";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const reduce = useReducedMotion();
+
+  // Keep the background video running: browsers pause it on tab switch, on
+  // low power mode, and occasionally swallow the initial autoplay attempt.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const play = () => {
+      video.play().catch(() => {
+        /* autoplay blocked — nothing useful to do for a decorative video */
+      });
+    };
+
+    const onEnded = () => {
+      video.currentTime = 0;
+      play();
+    };
+
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") play();
+    };
+
+    play();
+    video.addEventListener("pause", play);
+    video.addEventListener("ended", onEnded);
+    video.addEventListener("loadeddata", play);
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      video.removeEventListener("pause", play);
+      video.removeEventListener("ended", onEnded);
+      video.removeEventListener("loadeddata", play);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, []);
 
   // Subtle parallax: content drifts up & fades as you scroll past the hero.
   const { scrollYProgress } = useScroll({
@@ -29,6 +65,7 @@ export function Hero() {
       {/* Background video */}
       <motion.div style={{ scale: videoScale }} className="absolute inset-0">
         <video
+          ref={videoRef}
           className="h-full w-full object-cover"
           autoPlay
           muted

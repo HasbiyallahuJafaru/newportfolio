@@ -9,9 +9,12 @@ export function Marquee() {
   return (
     <section
       aria-hidden
-      className="border-y border-line bg-sunk py-6 md:py-8"
+      className="relative overflow-hidden border-y border-line bg-sunk py-6 md:py-8"
     >
-      <div className="mask-fade-x overflow-hidden">
+      {/* Polka dot texture, faded at the edges to match the marquee mask */}
+      <div className="polka mask-fade-x absolute inset-0" />
+
+      <div className="mask-fade-x relative overflow-hidden">
         <div className="flex w-max animate-marquee items-center">
           {items.map((item, i) => (
             <div key={i} className="flex items-center">

@@ -76,6 +76,16 @@ body {
   );
 }
 
+/* Polka dot field (marquee band) */
+.polka {
+  background-image: radial-gradient(
+    rgba(140, 115, 85, 0.32) 1.5px,
+    transparent 1.6px
+  );
+  background-size: 18px 18px;
+  background-position: 0 0;
+}
+
 /* Reduce all motion when the user asks for it */
 @media (prefers-reduced-motion: reduce) {
   *,
