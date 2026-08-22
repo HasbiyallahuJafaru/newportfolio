@@ -154,6 +154,26 @@ export const work = {
         "PDFGee offline PDF software — document tools web app built by Hasbiyallahu Jafaru, full-stack developer",
       action: { label: "Visit Site", href: "https://pdfgee.com" },
     },
+    {
+      no: "08",
+      title: "Bliss Urban Hotels",
+      category: "Web Design · Hospitality",
+      body: "A hotel site for a business address in Kaduna. Rooms, rates and what each one includes are laid out up front, alongside the restaurant, laundry and car hire, so a guest reserves without ringing the front desk to ask.",
+      image: "/images/work-blissurbanhotels.jpg",
+      imageAlt:
+        "Bliss Urban Hotels & Suites Kaduna — hotel website with room booking designed by Hasbiyallahu Jafaru",
+      action: { label: "Visit Site", href: "https://blissurbanhotels.com" },
+    },
+    {
+      no: "09",
+      title: "Hulul Media",
+      category: "Web Design · Media",
+      body: "An editorial site for a storytelling studio that turns research into human stories. Films, features and campaigns sit in one portfolio a funder can read through before deciding to commission the next one.",
+      image: "/images/work-hululmedia.jpg",
+      imageAlt:
+        "Hulul Media storytelling and documentary studio website designed by Hasbiyallahu Jafaru — editorial web design",
+      action: { label: "Visit Site", href: "https://hululmedia.netlify.app" },
+    },
   ],
 };
 
