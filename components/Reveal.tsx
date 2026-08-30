@@ -3,6 +3,15 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
+/**
+ * Trigger as soon as the block's leading edge clears the fold, rather than
+ * when a *fraction* of it is on screen. A percentage threshold silently fails
+ * once a block grows taller than the viewport — a one-column grid of nine
+ * project cards is ~4000px on a phone, so "20% visible" (~800px) can never be
+ * satisfied and the cards stay at opacity 0 forever. Keep this height-independent.
+ */
+const VIEWPORT = { once: true, amount: "some", margin: "0px 0px -80px 0px" } as const;
+
 type RevealProps = {
   children: ReactNode;
   className?: string;
@@ -46,7 +55,7 @@ export function Reveal({
       variants={variants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={VIEWPORT}
     >
       {children}
     </MotionTag>
@@ -70,7 +79,7 @@ export function RevealGroup({
       className={className}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={VIEWPORT}
       variants={{
         hidden: {},
         show: { transition: { staggerChildren: stagger } },
