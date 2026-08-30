@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { services } from "@/lib/content";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import { SectionLabel } from "./SectionLabel";
+import { ArrowIcon } from "./icons";
 
 export function Services() {
   return (
@@ -57,6 +59,14 @@ export function Services() {
                     </li>
                   ))}
                 </ul>
+
+                <Link
+                  href={item.href}
+                  className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-bronze transition-colors duration-300 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze/60"
+                >
+                  See how it works
+                  <ArrowIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
               </article>
             </RevealItem>
           ))}

@@ -9,6 +9,7 @@ import { Pricing } from "@/components/Pricing";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Grain } from "@/components/Grain";
+import { StructuredData } from "@/components/StructuredData";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <StructuredData />
     </>
   );
 }

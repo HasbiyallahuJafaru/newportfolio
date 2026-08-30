@@ -66,19 +66,22 @@ export const services = {
     {
       no: "01",
       title: "Website Design",
+      href: "/web-design-kaduna",
       body: "A site that loads fast on a phone, says what you do within one screen, and gives a stranger a reason to contact you. Built to be found on Google from the day it goes live.",
       tags: ["UI / UX", "Responsive", "SEO"],
     },
     {
       no: "02",
       title: "Web App Development",
+      href: "/booking-system-development",
       body: "Bookings, dashboards and online stores. The jobs your team does by hand become a form the customer fills in, with the payment collected on the spot.",
       tags: ["Full-Stack", "APIs", "Payments"],
     },
     {
       no: "03",
       title: "Telegram Bot Development",
-      body: "A bot that shows your catalogue, takes the order and collects payment through Paystack inside the chat. Receipts go out on their own, whether or not you are online.",
+      href: "/telegram-bot-development",
+      body: "A bot that shows your catalogue, takes the order and collects payment through Stripe or Paystack inside the chat. Receipts go out on their own, whether or not you are online.",
       tags: ["Paystack", "Automation"],
     },
   ],

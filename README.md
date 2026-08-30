@@ -1,6 +1,6 @@
 # Hasbiyallahu Jafaru — Portfolio
 
-Production portfolio for [Hasbiyallahu Jafaru](https://hasbiyallahu.dev), Web Designer & Developer. Single-page Next.js site showcasing services, work, testimonials, and pricing — purpose-built to rank and convert.
+Production portfolio for [Hasbiyallahu Jafaru](https://hasbiyallahu.xyz), Web Designer & Developer. Single-page Next.js site showcasing services, work, testimonials, and pricing — purpose-built to rank and convert.
 
 ## Stack
 

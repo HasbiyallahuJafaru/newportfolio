@@ -1,6 +1,6 @@
-import { profile, services, testimonials } from "@/lib/content";
+import { profile, services } from "@/lib/content";
+import { siteUrl } from "@/lib/site";
 
-const siteUrl = "https://hasbiyallahu.dev"; // ponytail: hardcoded — update when you buy a domain
 
 export function StructuredData() {
   // ── Person ──
@@ -82,32 +82,6 @@ export function StructuredData() {
     ],
   };
 
-  // ── Review (testimonials) — only if there are testimonials ──
-  const reviewSchema =
-    testimonials.items.length > 0
-      ? {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: profile.name,
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "5",
-            reviewCount: String(testimonials.items.length),
-            bestRating: "5",
-          },
-          review: testimonials.items.map((t) => ({
-            "@type": "Review",
-            reviewBody: t.quote,
-            author: { "@type": "Person", name: t.author },
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: "5",
-              bestRating: "5",
-            },
-          })),
-        }
-      : null;
-
   // ── FAQPage — powers "People also ask" rich results ──
   const faq = {
     "@context": "https://schema.org",
@@ -149,7 +123,6 @@ export function StructuredData() {
   };
 
   const schemas: Record<string, unknown>[] = [person, website, professionalService, breadcrumb, faq];
-  if (reviewSchema) schemas.push(reviewSchema);
 
   return (
     <script

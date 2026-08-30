@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import { siteUrl } from "@/lib/site";
 import localFont from "next/font/local";
 import "./globals.css";
 import { profile } from "@/lib/content";
-import { StructuredData } from "@/components/StructuredData";
 
 // Self-hosted DM Sans — no build-time network dependency.
 const dmSans = localFont({
@@ -17,7 +17,6 @@ const dmSans = localFont({
   display: "swap",
 });
 
-const siteUrl = "https://hasbiyallahu.dev";
 const title = `${profile.name} — ${profile.role}`;
 const description =
   "Websites, web apps and Telegram bots that get your business found on Google and take the manual work off your team. Paystack payments included. Projects from $500.";
@@ -62,9 +61,9 @@ export const metadata: Metadata = {
     locale: "en_NG",
     images: [
       {
-        url: "/Hasbiyallahu.png",
-        width: 800,
-        height: 1067,
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
         alt: `${profile.name} — ${profile.role}`,
       },
     ],
@@ -73,7 +72,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/Hasbiyallahu.png"],
+    images: ["/og.jpg"],
     creator: "@hasbiyallahu", // ponytail: placeholder — update when you create a Twitter account
   },
 };
@@ -100,7 +99,6 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
-        <StructuredData />
       </body>
     </html>
   );
