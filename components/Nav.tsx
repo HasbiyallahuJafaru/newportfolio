@@ -2,12 +2,19 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { nav, profile, whatsappUrl } from "@/lib/content";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  // The section anchors only exist on the homepage. From a service page a bare
+  // "#about" resolves against that page and silently does nothing, so off-home
+  // they have to be rewritten to point back at the homepage.
+  const isHome = usePathname() === "/";
+  const sectionHref = (hash: string) => (isHome ? hash : `/${hash}`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -35,20 +42,20 @@ export function Nav() {
     >
       <nav className="mx-auto flex h-16 max-w-content items-center justify-between px-6 md:h-20 md:px-10">
         {/* Wordmark */}
-        <a
-          href="#top"
+        <Link
+          href={isHome ? "#top" : "/"}
           className="group flex items-center gap-2 text-sm font-semibold tracking-tight text-cream"
         >
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-bronze transition-transform duration-300 group-hover:scale-150" />
           {profile.shortName}
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
             <li key={item.href}>
               <Link
-                href={item.href}
+                href={sectionHref(item.href)}
                 scroll={true}
                 className="text-[13px] font-light text-muted transition-colors duration-200 hover:text-cream focus-visible:text-cream focus-visible:outline-none"
               >
@@ -107,7 +114,7 @@ export function Nav() {
               {nav.map((item) => (
                 <li key={item.href}>
                   <Link
-                    href={item.href}
+                    href={sectionHref(item.href)}
                     scroll={true}
                     onClick={() => setOpen(false)}
                     className="block py-3 text-lg font-light text-muted transition-colors hover:text-cream"

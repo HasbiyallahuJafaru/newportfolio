@@ -17,6 +17,8 @@ export type ServicePage = {
   /** <title> — keep under ~60 chars so Google doesn't truncate it */
   metaTitle: string;
   metaDescription: string;
+  /** Anchor text for internal links. Carries the keyword; never 'learn more'. */
+  linkLabel: string;
   eyebrow: string;
   h1: { lineOne: string; lineTwo: string };
   intro: string;
@@ -43,8 +45,9 @@ export const servicePages: ServicePage[] = [
   {
     slug: "telegram-bot-development",
     metaTitle: "Telegram Bot Development for Business",
+    linkLabel: "Telegram Bot Development",
     metaDescription:
-      "Custom Telegram bots that show your catalogue, take the order and collect payment inside the chat. Stripe or Paystack, receipts sent automatically. Built and deployed for you.",
+      "Custom Telegram bots that show your catalogue, take the order and collect payment in chat. Paystack and Stripe, receipts automatic. From $1,200.",
     eyebrow: "Telegram Bot Development",
     h1: { lineOne: "Bots that take the order", lineTwo: "and collect the payment." },
     intro:
@@ -118,8 +121,9 @@ export const servicePages: ServicePage[] = [
   {
     slug: "booking-system-development",
     metaTitle: "Custom Booking System Development",
+    linkLabel: "Booking System Development",
     metaDescription:
-      "Custom booking and scheduling systems built to fit how your business actually works. Real-time availability, online payment and automatic reminders, without the agency price tag.",
+      "Custom booking systems with live availability, online payment and automatic reminders, built to fit your business. From $3,500, not agency prices.",
     eyebrow: "Booking System Development",
     h1: { lineOne: "Booking systems that fill", lineTwo: "the calendar for you." },
     intro:
@@ -193,10 +197,11 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "web-design-kaduna",
-    metaTitle: "Web Design in Kaduna",
+    metaTitle: "Website Designer in Kaduna",
+    linkLabel: "Website Design in Kaduna",
     metaDescription:
-      "Website design in Kaduna for businesses that want to be found on Google. Built by a Kaduna-based developer with hotel, hospitality and non-profit work behind him. Projects from $500.",
-    eyebrow: "Web Design · Kaduna",
+      "Hire a Kaduna-based website designer. Business sites built to rank on Google, load fast on mobile and bring in calls. Fixed quotes from $500.",
+    eyebrow: "Website Design · Kaduna",
     h1: { lineOne: "Websites for Kaduna", lineTwo: "businesses that sell." },
     intro:
       "Most web design in Kaduna is a template, a logo dropped in, and an invoice. What you want is a site a stranger can land on from Google, understand in one screen and contact you from. I am based here, I have built for businesses on this side of the country, and you can go and look at them.",
@@ -263,7 +268,7 @@ export const servicePages: ServicePage[] = [
       },
     ],
     serviceType: "Web Design",
-    areaServed: ["Kaduna", "Zaria", "Abuja", "Nigeria"],
+    areaServed: ["Kaduna", "Kaduna State", "Zaria", "Kafanchan", "Abuja", "Northern Nigeria", "Nigeria"],
   },
 ];
 

@@ -13,13 +13,21 @@ export function StructuredData() {
     email: profile.email,
     telephone: profile.phoneDisplay,
     url: siteUrl,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kaduna",
+      addressRegion: "Kaduna State",
+      addressCountry: "NG",
+    },
     sameAs: [
       `https://wa.me/${profile.whatsapp}`,
     ],
     // ponytail: no socials listed yet — add LinkedIn/GitHub/Twitter when they exist
     knowsAbout: [
       "Web Design",
+      "Website Design in Kaduna",
       "Web Development",
+      "Booking System Development",
       "Telegram Bots",
       "Paystack Integration",
       "Full-Stack Development",
@@ -33,9 +41,9 @@ export function StructuredData() {
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: `${profile.name} — ${profile.role}`,
+    name: `Website Designer in Kaduna | ${profile.name}`,
     description:
-      "Websites, web apps and Telegram bots that get your business found on Google and take the manual work off your team.",
+      "Website designer in Kaduna building business websites, booking systems and Telegram bots with Paystack.",
     url: siteUrl,
     inLanguage: "en",
   };
@@ -45,14 +53,24 @@ export function StructuredData() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": `${siteUrl}/#service`,
-    name: `${profile.name} — ${profile.role}`,
+    name: `Website Designer in Kaduna | ${profile.name}`,
     description:
-      "Web design, web application development, and Telegram bot development services.",
+      "Website design, booking systems, web applications and Telegram bot development for businesses in Kaduna, Northern Nigeria and abroad.",
     url: siteUrl,
-    areaServed: {
-      "@type": "Place",
-      name: "Worldwide",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kaduna",
+      addressRegion: "Kaduna State",
+      addressCountry: "NG",
     },
+    areaServed: [
+      { "@type": "City", name: "Kaduna" },
+      { "@type": "AdministrativeArea", name: "Kaduna State" },
+      { "@type": "City", name: "Zaria" },
+      { "@type": "City", name: "Abuja" },
+      { "@type": "Country", name: "Nigeria" },
+      { "@type": "Place", name: "Worldwide" },
+    ],
     provider: { "@type": "Person", name: profile.name },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -89,18 +107,18 @@ export function StructuredData() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What services do you offer as a web designer and developer?",
+        name: "Are you a website designer based in Kaduna?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Three things: website design built to be found on Google, full-stack web applications (booking systems, dashboards, e-commerce) that let customers serve themselves, and Telegram bots that take orders and collect payments inside the chat.",
+          text: "Yes. I am a website designer and developer based in Kaduna, Nigeria, working with businesses across Kaduna State, Zaria, Abuja and the rest of Northern Nigeria, as well as clients abroad. Bliss Urban Hotels is a Kaduna business and the site is live, so you can look at real local work before hiring.",
         },
       },
       {
         "@type": "Question",
-        name: "How much does a website or Telegram bot cost?",
+        name: "How much does a website cost in Kaduna?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Websites and Telegram bots start at $500 USD. The final price depends on scope, features, and timeline. Every project includes custom design, responsive build, payment integration, clean code, revisions, and deployment.",
+          text: "Most business websites in Kaduna land between $500 and $1,500, depending on how many pages you need and whether you take payments or bookings online. Telegram bots start at $1,200 and booking systems at $3,500. You get a fixed quote before any work starts, not an hourly rate that drifts.",
         },
       },
       {

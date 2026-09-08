@@ -17,27 +17,33 @@ const dmSans = localFont({
   display: "swap",
 });
 
-const title = `${profile.name} — ${profile.role}`;
+// Title and description lead with the phrase people type when they are
+// hiring — "website designer in Kaduna" — rather than with the name, which
+// only helps people who already know it.
+const title = `Website Designer in Kaduna, Nigeria | ${profile.name}`;
 const description =
-  "Websites, web apps and Telegram bots that get your business found on Google and take the manual work off your team. Paystack payments included. Projects from $500.";
+  "Website designer in Kaduna, Nigeria. Business websites, booking systems and Telegram bots with Paystack. See live work, get a fixed quote. From $500.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
+  // Google ignores this tag for ranking; kept because Bing and some local
+  // directories still read it. The terms are the hiring-intent ones the page
+  // is actually written for.
   keywords: [
-    "Web Designer",
-    "Web Developer",
-    "Telegram Bots",
-    "Paystack",
-    "Full-Stack",
-    "Nigeria",
+    "website designer in Kaduna",
+    "web designer in Kaduna",
+    "web design company in Kaduna",
+    "website developer in Kaduna",
+    "hire a web designer in Nigeria",
+    "website design price in Nigeria",
+    "business website design Kaduna",
+    "booking system development",
+    "Telegram bot developer Nigeria",
+    "Paystack integration developer",
+    "web designer Northern Nigeria",
     "Hasbiyallahu Jafaru",
-    "UI UX Design",
-    "Web Applications",
-    "E-Commerce",
-    "Automation",
-    "Portfolio",
   ],
   authors: [{ name: profile.name, url: siteUrl }],
   creator: profile.name,

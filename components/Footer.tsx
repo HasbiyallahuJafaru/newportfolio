@@ -1,9 +1,16 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { nav, profile, whatsappUrl } from "@/lib/content";
+import { servicePages } from "@/lib/servicePages";
 
 export function Footer() {
   const year = new Date().getFullYear();
+
+  // Same rule as the Nav: section anchors are homepage-only.
+  const isHome = usePathname() === "/";
+  const sectionHref = (hash: string) => (isHome ? hash : `/${hash}`);
 
   return (
     <footer className="border-t border-line bg-ebony">
@@ -11,33 +18,50 @@ export function Footer() {
         <div className="flex flex-col items-center gap-10 text-center md:flex-row md:items-start md:justify-between md:text-left">
           {/* Brand */}
           <div className="max-w-xs">
-            <a
-              href="#top"
+            <Link
+              href={isHome ? "#top" : "/"}
               className="flex items-center justify-center gap-2 text-base font-semibold tracking-tight text-cream md:justify-start"
             >
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-bronze" />
               {profile.name}
-            </a>
+            </Link>
             <p className="mt-4 text-sm font-light leading-relaxed text-faint">
-              {profile.role}. Clean code, purposeful design, real results.
+              Website designer and developer in Kaduna, Nigeria. Clean code,
+              purposeful design, real results.
             </p>
           </div>
 
           {/* Nav + contact — hidden on mobile */}
           <div className="hidden flex-col items-center gap-8 text-center sm:flex sm:flex-row sm:items-start sm:gap-16 sm:text-left">
+            {/* Services — the pages that have to rank, linked sitewide */}
+            <nav className="hidden flex-col gap-3 sm:flex">
+              <span className="text-[11px] font-light uppercase tracking-[0.16em] text-bronze-lite">
+                Services
+              </span>
+              {servicePages.map((page) => (
+                <Link
+                  key={page.slug}
+                  href={`/${page.slug}`}
+                  className="text-sm font-light text-muted transition-colors hover:text-cream"
+                >
+                  {page.linkLabel}
+                </Link>
+              ))}
+            </nav>
+
             {/* Navigate — hidden on mobile */}
             <nav className="hidden flex-col gap-3 sm:flex">
               <span className="text-[11px] font-light uppercase tracking-[0.16em] text-bronze-lite">
                 Navigate
               </span>
               {nav.map((item) => (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
+                  href={sectionHref(item.href)}
                   className="text-sm font-light text-muted transition-colors hover:text-cream"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
             <div className="hidden flex-col items-center gap-3 sm:flex sm:items-start">

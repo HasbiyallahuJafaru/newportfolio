@@ -64,7 +64,7 @@ export function Services() {
                   href={item.href}
                   className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-bronze transition-colors duration-300 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze/60"
                 >
-                  See how it works
+                  {item.cta}
                   <ArrowIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </article>
