@@ -84,7 +84,7 @@ export const servicePages: ServicePage[] = [
       project: "Sales Bot",
       image: "/images/work-salesbot.jpg",
       imageAlt:
-        "Telegram sales bot with Paystack payment integration built by Hasbiyallahu Jafaru — customers browse a catalogue, order and pay inside the chat",
+        "Telegram sales bot with Paystack payment integration built by Hasbiyallahu Jafaru, where customers browse a catalogue, order and pay inside the chat",
       body: "A Telegram sales bot for a retailer who was losing evenings to confirming bank transfers by hand. Customers browse the catalogue, order and pay with Paystack inside the chat, and the bot verifies each payment and issues the receipt on its own. The seller stopped confirming transfers manually the day it went live.",
       href: null,
     },
@@ -161,7 +161,7 @@ export const servicePages: ServicePage[] = [
       project: "InBookings Online",
       image: "/images/work-inbookings.jpg",
       imageAlt:
-        "InBookings Online booking platform built by Hasbiyallahu Jafaru — customers reserve and pay online while the operator watches capacity fill",
+        "InBookings Online booking platform built by Hasbiyallahu Jafaru, where customers reserve and pay online while the operator watches capacity fill",
       body: "A full booking platform where customers reserve and pay for themselves. The operator watches capacity fill through a dashboard instead of answering the phone, and the reservations that used to be taken by hand now arrive already paid for.",
       href: "https://inbookingsonline.com",
     },
@@ -237,7 +237,7 @@ export const servicePages: ServicePage[] = [
       project: "Bliss Urban Hotels",
       image: "/images/work-blissurbanhotels.jpg",
       imageAlt:
-        "Bliss Urban Hotels & Suites Kaduna — hotel website with rooms, rates and booking designed by Hasbiyallahu Jafaru",
+        "Bliss Urban Hotels and Suites Kaduna hotel website with rooms, rates and booking designed by Hasbiyallahu Jafaru",
       body: "A hotel site for a business address in Kaduna. Rooms, rates and what each one includes are laid out up front, alongside the restaurant, laundry and car hire, so a guest reserves without ringing the front desk to ask. Built for a Kaduna business, running for a Kaduna business.",
       href: "https://blissurbanhotels.com",
     },

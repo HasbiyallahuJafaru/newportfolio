@@ -1,14 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 import { nav, profile, whatsappUrl } from "@/lib/content";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [solid, setSolid] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const last = useRef(0);
 
   // The section anchors only exist on the homepage. From a service page a bare
   // "#about" resolves against that page and silently does nothing, so off-home
@@ -16,12 +25,16 @@ export function Nav() {
   const isHome = usePathname() === "/";
   const sectionHref = (hash: string) => (isHome ? hash : `/${hash}`);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  // Motion's scroll value instead of a `scroll` listener: one shared frame loop,
+  // and the direction check only fires state changes that actually differ, so
+  // React bails out of the re-render on every other frame.
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const dy = y - last.current;
+    last.current = y;
+    setSolid(y > 40);
+    if (Math.abs(dy) > 3) setHidden(y > 160 && dy > 0 && !open);
+  });
 
   // Lock body scroll while the mobile menu is open
   useEffect(() => {
@@ -31,12 +44,20 @@ export function Nav() {
     };
   }, [open]);
 
+  // Scrolling up with the sheet open should bring the header back.
+  useEffect(() => {
+    if (open) setHidden(false);
+  }, [open]);
+
   return (
-    <header
+    <motion.header
+      variants={{ visible: { y: 0 }, hidden: { y: "-115%" } }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.4, ease: EASE }}
       className={[
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out",
-        scrolled
-          ? "border-b border-line/70 bg-void/75 backdrop-blur-md"
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
+        solid
+          ? "border-b border-line/70 bg-void/70 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
@@ -57,9 +78,13 @@ export function Nav() {
               <Link
                 href={sectionHref(item.href)}
                 scroll={true}
-                className="text-[13px] font-light text-muted transition-colors duration-200 hover:text-cream focus-visible:text-cream focus-visible:outline-none"
+                className="group/link relative block py-1 text-[13px] font-light text-muted transition-colors duration-200 hover:text-cream focus-visible:text-cream focus-visible:outline-none"
               >
                 {item.label}
+                <span
+                  aria-hidden
+                  className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-bronze transition-transform duration-300 ease-out group-hover/link:scale-x-100 group-focus-visible/link:scale-x-100"
+                />
               </Link>
             </li>
           ))}
@@ -71,10 +96,9 @@ export function Nav() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative hidden rounded-full p-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze/60 sm:block"
+            className="group hidden rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 sm:block"
           >
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-bronze to-bronze-lite opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
-            <span className="relative block rounded-full bg-void/85 px-5 py-2 text-[12px] font-medium uppercase tracking-[0.08em] text-cream transition-colors duration-300 group-hover:bg-transparent">
+            <span className="block rounded-full bg-gradient-to-r from-bronze-lite to-[#d0b189] px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-void transition-colors duration-300 group-hover:to-[#e0c39b]">
               Let&apos;s Talk
             </span>
           </a>
@@ -107,12 +131,26 @@ export function Nav() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-line bg-void/95 backdrop-blur-md md:hidden"
+            transition={{ duration: 0.35, ease: EASE }}
+            className="overflow-hidden border-t border-line bg-void/95 backdrop-blur-xl md:hidden"
           >
-            <ul className="flex flex-col gap-1 px-6 py-6">
+            <motion.ul
+              initial="hidden"
+              animate="show"
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: 0.05, delayChildren: 0.08 } },
+              }}
+              className="flex flex-col gap-1 px-6 py-6"
+            >
               {nav.map((item) => (
-                <li key={item.href}>
+                <motion.li
+                  key={item.href}
+                  variants={{
+                    hidden: { opacity: 0, y: 14 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+                  }}
+                >
                   <Link
                     href={sectionHref(item.href)}
                     scroll={true}
@@ -121,9 +159,15 @@ export function Nav() {
                   >
                     {item.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
-              <li className="pt-3">
+              <motion.li
+                variants={{
+                  hidden: { opacity: 0, y: 14 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+                }}
+                className="pt-3"
+              >
                 <a
                   href={whatsappUrl}
                   target="_blank"
@@ -133,11 +177,11 @@ export function Nav() {
                 >
                   Message me on WhatsApp
                 </a>
-              </li>
-            </ul>
+              </motion.li>
+            </motion.ul>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

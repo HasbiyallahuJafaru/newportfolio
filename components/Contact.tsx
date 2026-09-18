@@ -3,6 +3,7 @@
 import { contact, profile, whatsappUrl } from "@/lib/content";
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./SectionLabel";
+import { SplitText } from "./motion";
 import { WhatsAppIcon, MailIcon, PhoneIcon } from "./icons";
 
 export function Contact() {
@@ -26,9 +27,15 @@ export function Contact() {
         <Reveal>
           <SectionLabel>{contact.label}</SectionLabel>
           <h2 className="mt-7 text-5xl font-medium leading-[1.02] tracking-tightest sm:text-6xl md:text-7xl">
-            <span className="text-cream">{contact.headline[0]} </span>
-            <span className="text-gradient">{contact.headline[1]} </span>
-            <span className="text-faint">{contact.headline[2]}</span>
+            <SplitText text={contact.headline[0]} className="text-cream" />
+            <span> </span>
+            <SplitText
+              text={contact.headline[1]}
+              wordClassName="text-gradient"
+              delay={0.08}
+            />
+            <span> </span>
+            <SplitText text={contact.headline[2]} className="text-faint" delay={0.16} />
           </h2>
           <p className="mt-8 max-w-md text-base font-light leading-relaxed text-muted md:text-lg">
             {contact.body}

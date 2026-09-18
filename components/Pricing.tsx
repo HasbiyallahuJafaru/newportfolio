@@ -2,7 +2,8 @@
 
 import { pricing, whatsappUrl } from "@/lib/content";
 import { Reveal } from "./Reveal";
-import { SectionLabel } from "./SectionLabel";
+import { Magnetic, SplitText } from "./motion";
+import { ArrowRightIcon } from "./icons";
 
 function Check() {
   return (
@@ -36,14 +37,14 @@ export function Pricing() {
       <div className="relative mx-auto max-w-content px-6 md:px-10">
         <div className="flex flex-col items-center text-center">
           <Reveal>
-            <div className="flex justify-center">
-              <SectionLabel>{pricing.label}</SectionLabel>
-            </div>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tightest sm:text-5xl md:text-6xl">
-              <span className="text-cream">{pricing.headline[0]} </span>
-              <span className="text-gradient">{pricing.headline[1]}</span>
+            <h2 className="text-4xl font-medium leading-[1.05] tracking-tightest sm:text-5xl md:text-6xl">
+              <SplitText text={pricing.headline[0]} className="text-cream" />
+              <span> </span>
+              <SplitText
+                text={pricing.headline[1]}
+                wordClassName="text-gradient"
+                delay={0.08}
+              />
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -68,17 +69,19 @@ export function Pricing() {
                 <span className="mt-3 text-[15px] font-light text-muted">
                   {pricing.forText}
                 </span>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group mt-8 inline-flex w-fit items-center justify-center gap-2 rounded-full bg-bronze px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] text-cream transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze-lite"
-                >
-                  {pricing.cta}
-                  <span className="transition-transform duration-300 group-hover:translate-x-0.5">
-                    →
-                  </span>
-                </a>
+                <Magnetic className="mt-8 w-fit">
+                  {/* Dark text on the warm gold fill: cream on the darker bronze
+                      lands at 4.26:1, just under the 4.5:1 AA floor. */}
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex w-fit items-center justify-center gap-2 rounded-full bg-gradient-to-r from-bronze-lite to-[#d0b189] px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] text-void transition-colors duration-300 hover:to-[#e0c39b] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60"
+                  >
+                    {pricing.cta}
+                    <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </a>
+                </Magnetic>
               </div>
 
               {/* Includes */}

@@ -70,7 +70,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: `${profile.name} — ${profile.role}`,
+        alt: `${profile.name}, ${profile.role}`,
       },
     ],
   },

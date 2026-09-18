@@ -3,7 +3,7 @@ import { profile } from "@/lib/content";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${profile.name} — ${profile.role}`,
+    name: `${profile.name}, ${profile.role}`,
     short_name: profile.shortName,
     description:
       "Bespoke websites, web applications, and Telegram automation. Clean code. Purposeful design. Real results.",

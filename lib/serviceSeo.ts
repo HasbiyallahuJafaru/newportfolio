@@ -5,7 +5,7 @@ import type { ServicePage } from "./servicePages";
 
 export function serviceMetadata(page: ServicePage): Metadata {
   const url = `${siteUrl}/${page.slug}`;
-  const title = `${page.metaTitle} — ${profile.name}`;
+  const title = `${page.metaTitle} | ${profile.name}`;
 
   return {
     title,

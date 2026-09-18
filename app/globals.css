@@ -86,6 +86,39 @@ body {
   background-position: 0 0;
 }
 
+/* Frosted surface used for panels over the video / page texture.
+   Web glassmorphism, not Apple Liquid Glass — there is no such CSS package. */
+.glass {
+  background: rgba(33, 30, 27, 0.55);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(46, 43, 40, 0.9);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: #211e1b;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Slow-breathing warm bloom behind the hero. */
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate3d(-4%, -2%, 0) scale(1.06);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate3d(5%, 3%, 0) scale(1.18);
+    opacity: 0.82;
+  }
+}
+.aurora {
+  animation: aurora 20s ease-in-out infinite;
+}
+
 /* Reduce all motion when the user asks for it */
 @media (prefers-reduced-motion: reduce) {
   *,

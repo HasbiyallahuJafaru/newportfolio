@@ -4,6 +4,7 @@ import Image from "next/image";
 import { about, profile, whatsappUrl } from "@/lib/content";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import { SectionLabel } from "./SectionLabel";
+import { Magnetic, SplitText } from "./motion";
 import { ArrowIcon } from "./icons";
 
 export function About() {
@@ -42,7 +43,7 @@ export function About() {
               <div className="relative aspect-[3/4] overflow-hidden rounded-[1.4rem] ring-1 ring-cream/10">
                 <Image
                   src="/Hasbiyallahu.png"
-                  alt={`${profile.name} — ${profile.role}, Web Designer & Developer in Nigeria`}
+                  alt={`${profile.name}, ${profile.role} in Nigeria`}
                   fill
                   sizes="(max-width: 768px) 340px, 400px"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
@@ -86,9 +87,15 @@ export function About() {
         {/* Headline + body + CTA */}
         <Reveal delay={0.15} className="flex flex-col gap-7">
           <h2 className="text-4xl font-medium leading-[1.05] tracking-tightest sm:text-5xl md:text-[3.25rem]">
-            <span className="text-cream">{about.headline[0]} </span>
-            <span className="text-gradient">{about.headline[1]} </span>
-            <span className="text-faint">{about.headline[2]}</span>
+            <SplitText text={about.headline[0]} className="text-cream" />
+            <span> </span>
+            <SplitText
+              text={about.headline[1]}
+              wordClassName="text-gradient"
+              delay={0.08}
+            />
+            <span> </span>
+            <SplitText text={about.headline[2]} className="text-faint" delay={0.16} />
           </h2>
 
           <div className="flex flex-col gap-5">
@@ -102,15 +109,17 @@ export function About() {
             ))}
           </div>
 
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group mt-1 inline-flex w-fit items-center gap-2 text-sm font-medium text-cream"
-          >
-            Start a Project
-            <ArrowIcon className="h-4 w-4 text-bronze transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          <Magnetic className="mt-1 w-fit" strength={0.22}>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex w-fit items-center gap-2 text-sm font-medium text-cream"
+            >
+              Start a Project
+              <ArrowIcon className="h-4 w-4 text-bronze transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </Magnetic>
         </Reveal>
       </div>
 

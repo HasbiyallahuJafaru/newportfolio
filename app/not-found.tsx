@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { profile, nav } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Page Not Found — Hasbiyallahu Jafaru",
+  title: "Page Not Found | Hasbiyallahu Jafaru",
   robots: { index: false, follow: true },
 };
 

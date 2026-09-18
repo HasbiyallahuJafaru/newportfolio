@@ -10,6 +10,7 @@ import { Footer } from "./Footer";
 import { Grain } from "./Grain";
 import { SectionLabel } from "./SectionLabel";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
+import { SplitText } from "./motion";
 import { ArrowIcon } from "./icons";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -36,23 +37,20 @@ export function ServicePage({ page }: { page: ServicePageData }) {
               <SectionLabel>{page.eyebrow}</SectionLabel>
             </motion.div>
 
-            <h1 className="mt-7 max-w-4xl text-[13vw] font-semibold leading-[0.94] tracking-tightest sm:text-6xl md:text-7xl">
-              <motion.span
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease, delay: 0.05 }}
+            <h1 className="mt-7 max-w-4xl text-[11vw] font-semibold leading-[0.98] tracking-tightest sm:text-6xl md:text-7xl">
+              <SplitText
+                trigger="mount"
+                delay={0.05}
+                text={page.h1.lineOne}
                 className="block text-cream"
-              >
-                {page.h1.lineOne}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease, delay: 0.15 }}
-                className="block text-gradient"
-              >
-                {page.h1.lineTwo}
-              </motion.span>
+              />
+              <SplitText
+                trigger="mount"
+                delay={0.25}
+                text={page.h1.lineTwo}
+                className="block"
+                wordClassName="text-gradient"
+              />
             </h1>
 
             <motion.p
@@ -74,7 +72,7 @@ export function ServicePage({ page }: { page: ServicePageData }) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-bronze px-7 py-3.5 text-sm font-medium text-cream transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze/60"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-bronze-lite to-[#d0b189] px-7 py-3.5 text-sm font-medium text-void transition-colors duration-300 hover:to-[#e0c39b] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60"
               >
                 Start a project
                 <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -90,15 +88,15 @@ export function ServicePage({ page }: { page: ServicePageData }) {
         </section>
 
         {/* ── What gets built ────────────────────────────────── */}
-        <section className="relative overflow-hidden border-y border-light-line bg-paper py-24 text-ink md:py-32">
+        <section className="relative overflow-hidden border-y border-line bg-sunk py-24 md:py-32">
           <div
             aria-hidden
             className="pointer-events-none absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-bronze/10 blur-[120px]"
           />
           <div className="relative mx-auto max-w-content px-6 md:px-10">
             <Reveal>
-              <SectionLabel tone="light">What gets built</SectionLabel>
-              <h2 className="mt-6 max-w-2xl text-3xl font-medium leading-tight tracking-tight text-ink sm:text-4xl">
+              <SectionLabel>What gets built</SectionLabel>
+              <h2 className="mt-6 max-w-2xl text-3xl font-medium leading-tight tracking-tight text-cream sm:text-4xl">
                 Everything below is part of the build, not an upsell.
               </h2>
             </Reveal>
@@ -106,11 +104,11 @@ export function ServicePage({ page }: { page: ServicePageData }) {
             <RevealGroup className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {page.capabilities.map((c) => (
                 <RevealItem key={c.title} className="h-full">
-                  <article className="group flex h-full flex-col rounded-2xl border border-light-line bg-paper-raised p-7 shadow-sm shadow-black/5 transition-colors duration-500 hover:border-bronze/60">
-                    <h3 className="text-lg font-medium tracking-tight text-ink">
+                  <article className="group flex h-full flex-col rounded-2xl border border-line bg-raised/40 p-7 transition-colors duration-500 hover:border-bronze/60">
+                    <h3 className="text-lg font-medium tracking-tight text-cream">
                       {c.title}
                     </h3>
-                    <p className="mt-3 text-[15px] font-light leading-relaxed text-ink-muted">
+                    <p className="mt-3 text-[15px] font-light leading-relaxed text-muted">
                       {c.body}
                     </p>
                   </article>
@@ -241,7 +239,7 @@ export function ServicePage({ page }: { page: ServicePageData }) {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-bronze px-7 py-3.5 text-sm font-medium text-cream transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze/60"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-bronze-lite to-[#d0b189] px-7 py-3.5 text-sm font-medium text-void transition-colors duration-300 hover:to-[#e0c39b] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60"
                 >
                   Message on WhatsApp
                   <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

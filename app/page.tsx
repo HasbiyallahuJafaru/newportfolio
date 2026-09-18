@@ -9,12 +9,14 @@ import { Pricing } from "@/components/Pricing";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Grain } from "@/components/Grain";
+import { ScrollProgress } from "@/components/motion";
 import { StructuredData } from "@/components/StructuredData";
 
 export default function Home() {
   return (
     <>
       <Grain />
+      <ScrollProgress />
       <Nav />
       <main className="relative z-[2]">
         <Hero />

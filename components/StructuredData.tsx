@@ -126,7 +126,7 @@ export function StructuredData() {
         name: "Do you integrate Paystack payments in websites and Telegram bots?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. I build Paystack payment integration into websites, web applications, and Telegram bots — customers can pay and receive receipts without manual effort.",
+          text: "Yes. I build Paystack payment integration into websites, web applications, and Telegram bots. Customers can pay and receive receipts without manual effort.",
         },
       },
       {

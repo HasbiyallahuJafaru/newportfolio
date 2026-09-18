@@ -31,7 +31,7 @@ export const hero = {
   lineOne: "Be easy to find,",
   lineTwo: "easy to buy from.",
   subtitle:
-    "Websites, web apps and Telegram bots for businesses that want to show up on Google and stop losing hours to work their software should be doing.",
+    "Websites, web apps and Telegram bots that get you found on Google and take the busywork off your team.",
 };
 
 export const marquee = [
@@ -99,7 +99,8 @@ export const work = {
       category: "Web Design · Non-Profit",
       body: "A donor-facing site for a non-profit. Mission, programmes and impact in plain language, so a first-time visitor understands who they are giving to.",
       image: "/images/work-crediblehope.jpg",
-      imageAlt: "Credible Hope Foundation nonprofit website designed by Hasbiyallahu Jafaru — warm, mission-driven web design",
+      imageAlt:
+        "Credible Hope Foundation nonprofit website designed by Hasbiyallahu Jafaru, with warm, mission-driven web design",
       action: { label: "Visit Site", href: "https://crediblehopefoundation.org" },
     },
     {
@@ -108,7 +109,8 @@ export const work = {
       category: "Web App · Bookings",
       body: "An online booking platform. Customers reserve and pay for themselves, and the operator watches capacity fill without answering a single call.",
       image: "/images/work-inbookings.jpg",
-      imageAlt: "InBookings Online — booking platform web app built by Hasbiyallahu Jafaru, full-stack developer",
+      imageAlt:
+        "InBookings Online booking platform web app built by Hasbiyallahu Jafaru, full-stack developer",
       action: { label: "Visit Site", href: "https://inbookingsonline.com" },
     },
     {
@@ -118,7 +120,7 @@ export const work = {
       body: "A Telegram sales bot. Customers browse the catalogue, order and pay with Paystack inside the chat, and the seller never has to confirm a transfer by hand.",
       image: "/images/work-salesbot.jpg",
       imageAlt:
-        "Telegram sales bot with Paystack payment integration built by Hasbiyallahu Jafaru — e-commerce automation",
+        "Telegram sales bot with Paystack payment integration built by Hasbiyallahu Jafaru, e-commerce automation",
       action: { label: "Private Project", href: null },
     },
     {
@@ -127,57 +129,68 @@ export const work = {
       category: "AI Copilot · SaaS",
       body: "An AI interview copilot with real-time coaching, mock interviews and answer scoring, sold through a marketing site written to turn visitors into downloads.",
       image: "/images/work-zoomguru.jpg",
-      imageAlt: "ZoomGuru AI interview copilot SaaS website — designed by Hasbiyallahu Jafaru, web application developer",
+      imageAlt:
+        "ZoomGuru AI interview copilot SaaS website designed by Hasbiyallahu Jafaru, web application developer",
       action: { label: "Visit Site", href: "https://zoomguru.xyz" },
     },
     {
       no: "05",
+      title: "YT Clipper",
+      category: "Web App · Video Tools",
+      body: "A browser tool that turns long YouTube videos into clips ready to post. Paste a link, mark the moments that matter on the timeline, then export the cuts without a download or a desktop editor.",
+      image: "/images/work-ytclipper.jpg",
+      imageAlt:
+        "YT Clipper web app for turning long YouTube videos into short clips, built by Hasbiyallahu Jafaru",
+      action: { label: "Visit Site", href: "https://ytclipper.xyz" },
+    },
+    {
+      no: "06",
       title: "Iklima Babangida",
       category: "Web Design · Photography",
       body: "A gallery-first portfolio for a fine art and documentary photographer. Full-bleed imagery, curated collections, and a CMS so she publishes a new series herself without calling a developer.",
       image: "/images/work-iklimababangida.jpg",
       imageAlt:
-        "Iklima Babangida fine art photography portfolio website designed by Hasbiyallahu Jafaru — full-bleed gallery web design",
+        "Iklima Babangida fine art photography portfolio website designed by Hasbiyallahu Jafaru, full-bleed gallery web design",
       action: { label: "Visit Site", href: "https://iklimababangida.com" },
     },
     {
-      no: "06",
+      no: "07",
       title: "In Loving Memory",
       category: "Web App · Memorial",
       body: "A memorial page built for a grieving family. Friends submit tributes and photos from a phone, and every message is kept for the family as a permanent record.",
       image: "/images/work-arctersoo.jpg",
       imageAlt:
-        "In Loving Memory — online memorial and tribute web app built by Hasbiyallahu Jafaru, web application developer",
+        "In Loving Memory online memorial and tribute web app built by Hasbiyallahu Jafaru, web application developer",
       action: { label: "Visit Site", href: "https://arc-tersoo.netlify.app" },
     },
     {
-      no: "07",
+      no: "08",
       title: "PDFGee",
       category: "Web App · Document Tools",
       body: "An offline-first PDF suite for editing, compressing, merging and signing documents. It installs as an app and runs locally, so sensitive files never leave the user's machine.",
       image: "/images/work-pdfgee.jpg",
       imageAlt:
-        "PDFGee offline PDF software — document tools web app built by Hasbiyallahu Jafaru, full-stack developer",
+        "PDFGee offline PDF software and document tools web app built by Hasbiyallahu Jafaru, full-stack developer",
       action: { label: "Visit Site", href: "https://pdfgee.com" },
     },
     {
-      no: "08",
+      no: "09",
       title: "Bliss Urban Hotels",
       category: "Web Design · Hospitality",
       body: "A hotel site for a business address in Kaduna. Rooms, rates and what each one includes are laid out up front, alongside the restaurant, laundry and car hire, so a guest reserves without ringing the front desk to ask.",
       image: "/images/work-blissurbanhotels.jpg",
       imageAlt:
-        "Bliss Urban Hotels & Suites Kaduna — hotel website with room booking designed by Hasbiyallahu Jafaru",
+        "Bliss Urban Hotels and Suites Kaduna hotel website with room booking designed by Hasbiyallahu Jafaru",
       action: { label: "Visit Site", href: "https://blissurbanhotels.com" },
     },
     {
-      no: "09",
+      no: "10",
       title: "Hulul Media",
       category: "Web Design · Media",
       body: "An editorial site for a storytelling studio that turns research into human stories. Films, features and campaigns sit in one portfolio a funder can read through before deciding to commission the next one.",
       image: "/images/work-hululmedia.jpg",
       imageAlt:
-        "Hulul Media storytelling and documentary studio website designed by Hasbiyallahu Jafaru — editorial web design",
+        "Hulul Media storytelling and documentary studio website designed by Hasbiyallahu Jafaru, editorial web design",
       action: { label: "Visit Site", href: "https://hululmedia.netlify.app" },
     },
   ],
@@ -200,7 +213,7 @@ export const testimonials = {
     },
     {
       quote:
-        "Our Telegram bot doubled our sales processing speed. The Paystack integration was seamless — customers pay and receive receipts without any manual effort.",
+        "Our Telegram bot doubled our sales processing speed. The Paystack integration was seamless. Customers pay and receive receipts without any manual effort.",
       author: "Business Owner",
       org: "E-Commerce Client",
     },
