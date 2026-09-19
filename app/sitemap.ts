@@ -5,16 +5,17 @@ import { servicePages } from "@/lib/servicePages";
 // Bumped by hand when the page content actually changes. Using new Date() here
 // would restamp lastmod on every deploy, and Google discounts a lastmod that
 // always says "just now".
-const LAST_CONTENT_UPDATE = "2026-09-03";
+const LAST_CONTENT_UPDATE = "2026-09-19";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(LAST_CONTENT_UPDATE);
 
   return [
     {
-      // Trailing slash so this matches the canonical the page declares
-      // (metadataBase + alternates.canonical: "/") exactly.
-      url: `${siteUrl}/`,
+      // No trailing slash: the homepage canonical renders as the bare origin
+      // (metadataBase + alternates.canonical: "/"), and the sitemap should
+      // list the exact same byte-for-byte URL.
+      url: siteUrl,
       lastModified,
       changeFrequency: "monthly",
       priority: 1,

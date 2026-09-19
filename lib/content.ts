@@ -31,7 +31,7 @@ export const hero = {
   lineOne: "Be easy to find,",
   lineTwo: "easy to buy from.",
   subtitle:
-    "Websites, web apps and Telegram bots that get you found on Google and take the busywork off your team.",
+    "Websites, web apps and Telegram bots for businesses in Kaduna and abroad, built to be found on Google and take the busywork off your team.",
 };
 
 export const marquee = [
@@ -51,6 +51,7 @@ export const about = {
   paragraphs: [
     "I build the parts of a business your customers actually touch. The site they find when they search for what you sell, and the bot or booking page that takes the order and the payment while you are busy elsewhere.",
     "Every project starts with the job you need done rather than what looks good in a portfolio. You get something fast, code any developer can pick up later, and a walkthrough so you are never locked out of your own site.",
+    "I am a website designer in Kaduna, Nigeria, working with businesses here in the north and with clients in the United States and Canada.",
   ],
   stats: [
     { value: "3+", label: "Years Active" },

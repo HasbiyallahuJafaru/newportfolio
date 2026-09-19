@@ -105,7 +105,6 @@ export const metadata: Metadata = {
     title,
     description,
     images: ["/og.jpg"],
-    creator: "@hasbiyallahu", // ponytail: placeholder — update when you create a Twitter account
   },
 };
 

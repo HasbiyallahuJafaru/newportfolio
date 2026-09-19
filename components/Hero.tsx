@@ -75,7 +75,7 @@ export function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           poster="/images/hero-poster.jpg"
           aria-hidden
           disableRemotePlayback
