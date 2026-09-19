@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-void px-6 text-center">
-      <p className="font-mono text-[10px] font-light uppercase tracking-[0.3em] text-bronze-lite">
+    <main className="flex min-h-[100dvh] flex-col items-center justify-center bg-ink px-6 text-center">
+      <p className="font-mono text-[10px] font-light uppercase tracking-[0.3em] text-signal-hi">
         404
       </p>
-      <h1 className="mt-6 text-4xl font-semibold tracking-tightest text-cream sm:text-5xl">
+      <h1 className="display mt-6 text-[clamp(2.25rem,7vw,4rem)] text-paper">
         Page not found
       </h1>
       <p className="mt-4 max-w-md text-base font-light leading-relaxed text-muted">
@@ -25,7 +25,7 @@ export default function NotFound() {
         <li>
           <Link
             href="/"
-            className="rounded-full bg-bronze px-6 py-3 text-sm font-medium text-cream transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze/60"
+            className="rounded-full bg-signal-deep px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.1em] text-paper transition-colors hover:bg-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal-hi"
           >
             Home
           </Link>
@@ -35,7 +35,7 @@ export default function NotFound() {
             <Link
               href={`/${item.href}`}
               scroll={true}
-              className="rounded-full border border-line bg-raised/40 px-5 py-3 text-sm font-light text-muted transition-colors hover:border-bronze hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze/60"
+              className="rounded-full border border-line-hi px-5 py-3.5 text-[13px] font-medium text-muted transition-colors hover:border-paper hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper/60"
             >
               {item.label}
             </Link>

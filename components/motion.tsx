@@ -52,7 +52,7 @@ export function ScrollProgress() {
     <motion.div
       aria-hidden
       style={{ scaleX }}
-      className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-bronze via-bronze-lite to-bronze"
+      className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-signal"
     />
   );
 }
@@ -193,8 +193,8 @@ export function SpotlightCard({
   const rotateY = useSpring(useTransform(mx, [0, 1], [-tilt, tilt]), spring);
 
   const off = reduce || tilt === 0;
-  const ring = useMotionTemplate`radial-gradient(${radius}px circle at ${px}px ${py}px, rgba(184,152,118,0.9), rgba(184,152,118,0.18) 45%, transparent 72%)`;
-  const wash = useMotionTemplate`radial-gradient(${radius * 1.5}px circle at ${px}px ${py}px, rgba(184,152,118,0.13), transparent 68%)`;
+  const ring = useMotionTemplate`radial-gradient(${radius}px circle at ${px}px ${py}px, rgba(228,50,63,0.9), rgba(228,50,63,0.18) 45%, transparent 72%)`;
+  const wash = useMotionTemplate`radial-gradient(${radius * 1.5}px circle at ${px}px ${py}px, rgba(228,50,63,0.12), transparent 68%)`;
 
   // Painted as a 1px ring by XOR-ing two masks, so only the border lights up.
   const ringMask: CSSProperties = {
@@ -304,11 +304,11 @@ export function VelocityMarquee({
       {loop.map((item, i) => (
         <div key={`${item}-${i}`} className="flex items-center">
           <span
-            className={`whitespace-nowrap px-8 text-2xl font-light tracking-tight md:text-3xl ${itemClassName}`}
+            className={`display whitespace-nowrap px-7 text-xl md:px-9 md:text-2xl ${itemClassName}`}
           >
             {item}
           </span>
-          <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-bronze" />
+          <span aria-hidden className="h-5 w-px shrink-0 bg-signal" />
         </div>
       ))}
     </motion.div>

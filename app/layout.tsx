@@ -17,6 +17,18 @@ const dmSans = localFont({
   display: "swap",
 });
 
+// Archivo variable (wght 100-900, wdth 62-125) in a single 90KB file. The
+// display face is condensed and heavy enough to work as structure rather than
+// decoration; vendored for the same reason DM Sans is, so the build never
+// depends on a font CDN.
+const archivo = localFont({
+  src: "./fonts/Archivo-Variable.woff2",
+  variable: "--font-display",
+  weight: "100 900",
+  display: "swap",
+  fallback: ["DM Sans", "system-ui", "sans-serif"],
+});
+
 // Title and description lead with the phrase people type when they are
 // hiring — "website designer in Kaduna" — rather than with the name, which
 // only helps people who already know it.
@@ -84,7 +96,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1a1816",
+  themeColor: "#0b0b0c",
   width: "device-width",
   initialScale: 1,
 };
@@ -95,12 +107,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={dmSans.variable}>
+    <html lang="en" className={`${dmSans.variable} ${archivo.variable}`}>
       <body>
         {/* Skip link — first focusable element for keyboard users */}
         <a
           href="#top"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-bronze focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-cream focus:outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-signal-deep focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-paper focus:outline-none"
         >
           Skip to content
         </a>

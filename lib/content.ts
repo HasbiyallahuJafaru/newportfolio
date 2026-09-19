@@ -23,7 +23,7 @@ export const nav = [
   { label: "Work", href: "#work" },
   { label: "Clients", href: "#clients" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Let's Talk", href: "#contact" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const hero = {
@@ -236,7 +236,7 @@ export const pricing = {
     "Launch, handover and a walkthrough so you can run it",
   ],
   footnote: "Final quote depends on scope, features, and timeline.",
-  cta: "Start a Project",
+  cta: "Start a project",
 };
 
 export const contact = {

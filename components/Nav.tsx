@@ -57,7 +57,7 @@ export function Nav() {
       className={[
         "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
         solid
-          ? "border-b border-line/70 bg-void/70 backdrop-blur-xl"
+          ? "border-b border-line bg-ink/80 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
@@ -65,10 +65,12 @@ export function Nav() {
         {/* Wordmark */}
         <Link
           href={isHome ? "#top" : "/"}
-          className="group flex items-center gap-2 text-sm font-semibold tracking-tight text-cream"
+          className="group flex items-center gap-2.5 text-paper"
         >
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-bronze transition-transform duration-300 group-hover:scale-150" />
-          {profile.shortName}
+          <span className="inline-block h-2.5 w-2.5 bg-signal transition-transform duration-300 group-hover:scale-125" />
+          <span className="display text-base tracking-[-0.02em]">
+            {profile.shortName}
+          </span>
         </Link>
 
         {/* Desktop links */}
@@ -78,12 +80,12 @@ export function Nav() {
               <Link
                 href={sectionHref(item.href)}
                 scroll={true}
-                className="group/link relative block py-1 text-[13px] font-light text-muted transition-colors duration-200 hover:text-cream focus-visible:text-cream focus-visible:outline-none"
+                className="group/link relative block py-1 text-[12px] font-medium uppercase tracking-[0.12em] text-muted transition-colors duration-200 hover:text-paper focus-visible:text-paper focus-visible:outline-none"
               >
                 {item.label}
                 <span
                   aria-hidden
-                  className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-bronze transition-transform duration-300 ease-out group-hover/link:scale-x-100 group-focus-visible/link:scale-x-100"
+                  className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-signal transition-transform duration-300 ease-out group-hover/link:scale-x-100 group-focus-visible/link:scale-x-100"
                 />
               </Link>
             </li>
@@ -96,10 +98,10 @@ export function Nav() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group hidden rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 sm:block"
+            className="group hidden rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper/60 sm:block"
           >
-            <span className="block rounded-full bg-gradient-to-r from-bronze-lite to-[#d0b189] px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-void transition-colors duration-300 group-hover:to-[#e0c39b]">
-              Let&apos;s Talk
+            <span className="block rounded-full bg-signal-deep px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-paper transition-colors duration-300 group-hover:bg-signal">
+              Start a project
             </span>
           </a>
 
@@ -111,12 +113,12 @@ export function Nav() {
             className="-mr-2 flex h-11 w-11 flex-col items-center justify-center gap-[5px] md:hidden"
           >
             <span
-              className={`block h-px w-5 bg-cream transition-transform duration-300 ${
+              className={`block h-px w-5 bg-paper transition-transform duration-300 ${
                 open ? "translate-y-[3px] rotate-45" : ""
               }`}
             />
             <span
-              className={`block h-px w-5 bg-cream transition-transform duration-300 ${
+              className={`block h-px w-5 bg-paper transition-transform duration-300 ${
                 open ? "-translate-y-[3px] -rotate-45" : ""
               }`}
             />
@@ -132,7 +134,7 @@ export function Nav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: EASE }}
-            className="overflow-hidden border-t border-line bg-void/95 backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-t border-line bg-ink/95 backdrop-blur-xl md:hidden"
           >
             <motion.ul
               initial="hidden"
@@ -155,7 +157,7 @@ export function Nav() {
                     href={sectionHref(item.href)}
                     scroll={true}
                     onClick={() => setOpen(false)}
-                    className="block py-3 text-lg font-light text-muted transition-colors hover:text-cream"
+                    className="block py-3 text-lg font-light text-muted transition-colors hover:text-paper"
                   >
                     {item.label}
                   </Link>
@@ -173,9 +175,9 @@ export function Nav() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
-                  className="inline-block rounded-full bg-bronze px-6 py-3 text-sm font-medium text-cream"
+                  className="inline-block rounded-full bg-signal-deep px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.12em] text-paper"
                 >
-                  Message me on WhatsApp
+                  Start a project
                 </a>
               </motion.li>
             </motion.ul>

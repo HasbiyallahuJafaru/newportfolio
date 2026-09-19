@@ -4,6 +4,13 @@
 
 :root {
   --font-dm-sans: "DM Sans", system-ui, sans-serif;
+  --gutter: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 2.5rem;
+  }
 }
 
 * {
@@ -15,112 +22,108 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
 body {
-  background-color: #1a1816;
-  color: #faf8f5;
+  background-color: #0b0b0c;
+  color: #f4f3f1;
   font-family: var(--font-dm-sans);
   overflow-x: hidden;
 }
 
-/* Warm, branded selection */
 ::selection {
-  background: #8c7355;
-  color: #faf8f5;
+  background: #e4323f;
+  color: #f4f3f1;
 }
 
-/* Slim custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #151311;
+  background: #08080a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2e2b28;
-  border-radius: 999px;
+  background: #23232a;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8c7355;
+  background: #e4323f;
 }
 
-/* Gradient text fill used for headlines */
-.text-gradient {
-  background: linear-gradient(180deg, #faf8f5 0%, #cbb9a3 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* ─────────────────────────────────────────────────────────────
+   Display type
+   The headline face is a condensed grotesque carrying a lot of
+   weight, so it needs negative tracking and a leading under 1 to
+   read as one mass rather than a stack of words.
+   ───────────────────────────────────────────────────────────── */
+.display {
+  font-family: var(--font-display), var(--font-dm-sans), sans-serif;
+  font-weight: 700;
+  font-stretch: 88%;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+/* Outlined display type. Used once, behind the hero portrait, so the
+   headline can be enormous without competing with the face. */
+.display-outline {
   color: transparent;
+  -webkit-text-stroke: 1px rgba(244, 243, 241, 0.16);
 }
 
-/* Edge fade mask for the marquee */
+@supports not ((-webkit-text-stroke: 1px black)) {
+  .display-outline {
+    color: rgba(244, 243, 241, 0.1);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Layout primitives
+   ───────────────────────────────────────────────────────────── */
+
+/* The page's structural hairline. A section that opens with one of
+   these reads as part of a grid rather than a floating block. */
+.rule {
+  border-top: 1px solid #23232a;
+}
+
+/* Edge fade for the capability strip. */
 .mask-fade-x {
   -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    #000 12%,
-    #000 88%,
+    #000 10%,
+    #000 90%,
     transparent
   );
   mask-image: linear-gradient(
     to right,
     transparent,
-    #000 12%,
-    #000 88%,
+    #000 10%,
+    #000 90%,
     transparent
   );
 }
 
-/* Polka dot field (marquee band) */
-.polka {
-  background-image: radial-gradient(
-    rgba(140, 115, 85, 0.32) 1.5px,
-    transparent 1.6px
-  );
-  background-size: 18px 18px;
-  background-position: 0 0;
-}
+/* ─────────────────────────────────────────────────────────────
+   Motion
+   ───────────────────────────────────────────────────────────── */
 
-/* Frosted surface used for panels over the video / page texture.
-   Web glassmorphism, not Apple Liquid Glass — there is no such CSS package. */
-.glass {
-  background: rgba(33, 30, 27, 0.55);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
-  backdrop-filter: blur(16px) saturate(150%);
-  border: 1px solid rgba(46, 43, 40, 0.9);
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .glass {
-    background: #211e1b;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
+/* Hairline that draws itself across a section heading on entry. It is
+   the page's only decorative animation, and it exists to mark where a
+   section begins as you arrive at it. */
+@keyframes rule-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 
-/* Slow-breathing warm bloom behind the hero. */
-@keyframes aurora {
-  0%,
-  100% {
-    transform: translate3d(-4%, -2%, 0) scale(1.06);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translate3d(5%, 3%, 0) scale(1.18);
-    opacity: 0.82;
-  }
-}
-.aurora {
-  animation: aurora 20s ease-in-out infinite;
-}
-
-/* Reduce all motion when the user asks for it */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {

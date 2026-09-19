@@ -24,10 +24,6 @@ export function ServicePage({ page }: { page: ServicePageData }) {
       <main id="top" className="relative z-[2]">
         {/* ── Hero ───────────────────────────────────────────── */}
         <section className="relative overflow-hidden px-6 pb-20 pt-32 md:px-10 md:pb-28 md:pt-44">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-32 top-10 h-[28rem] w-[28rem] rounded-full bg-bronze/10 blur-[140px]"
-          />
           <div className="relative mx-auto max-w-content">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -37,19 +33,18 @@ export function ServicePage({ page }: { page: ServicePageData }) {
               <SectionLabel>{page.eyebrow}</SectionLabel>
             </motion.div>
 
-            <h1 className="mt-7 max-w-4xl text-[11vw] font-semibold leading-[0.98] tracking-tightest sm:text-6xl md:text-7xl">
+            <h1 className="display mt-7 max-w-4xl text-[clamp(2.4rem,7.6vw,5.5rem)] text-paper">
               <SplitText
                 trigger="mount"
                 delay={0.05}
                 text={page.h1.lineOne}
-                className="block text-cream"
+                className="block"
               />
               <SplitText
                 trigger="mount"
                 delay={0.25}
                 text={page.h1.lineTwo}
                 className="block"
-                wordClassName="text-gradient"
               />
             </h1>
 
@@ -72,14 +67,14 @@ export function ServicePage({ page }: { page: ServicePageData }) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-bronze-lite to-[#d0b189] px-7 py-3.5 text-sm font-medium text-void transition-colors duration-300 hover:to-[#e0c39b] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-signal-deep px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.1em] text-paper transition-colors duration-300 hover:bg-signal active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal-hi focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
               >
                 Start a project
-                <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </a>
               <p className="text-sm font-light text-faint">
                 From{" "}
-                <span className="font-medium text-cream">{page.priceFrom}</span>
+                <span className="font-medium text-paper">{page.priceFrom}</span>
                 <span className="mx-2 text-line">·</span>
                 Reply within a few hours
               </p>
@@ -88,15 +83,11 @@ export function ServicePage({ page }: { page: ServicePageData }) {
         </section>
 
         {/* ── What gets built ────────────────────────────────── */}
-        <section className="relative overflow-hidden border-y border-line bg-sunk py-24 md:py-32">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-bronze/10 blur-[120px]"
-          />
+        <section className="relative overflow-hidden border-y border-line bg-deep py-24 md:py-32">
           <div className="relative mx-auto max-w-content px-6 md:px-10">
             <Reveal>
               <SectionLabel>What gets built</SectionLabel>
-              <h2 className="mt-6 max-w-2xl text-3xl font-medium leading-tight tracking-tight text-cream sm:text-4xl">
+              <h2 className="display mt-6 max-w-2xl text-[clamp(1.75rem,4.4vw,3rem)] text-paper">
                 Everything below is part of the build, not an upsell.
               </h2>
             </Reveal>
@@ -104,8 +95,8 @@ export function ServicePage({ page }: { page: ServicePageData }) {
             <RevealGroup className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {page.capabilities.map((c) => (
                 <RevealItem key={c.title} className="h-full">
-                  <article className="group flex h-full flex-col rounded-2xl border border-line bg-raised/40 p-7 transition-colors duration-500 hover:border-bronze/60">
-                    <h3 className="text-lg font-medium tracking-tight text-cream">
+                  <article className="group flex h-full flex-col border border-line bg-surface p-7 transition-colors duration-500 hover:border-signal">
+                    <h3 className="text-lg font-medium tracking-tight text-paper">
                       {c.title}
                     </h3>
                     <p className="mt-3 text-[15px] font-light leading-relaxed text-muted">
@@ -125,7 +116,7 @@ export function ServicePage({ page }: { page: ServicePageData }) {
           </Reveal>
 
           <Reveal delay={0.05} className="mt-10">
-            <div className="overflow-hidden rounded-3xl border border-line bg-raised/40 md:grid md:grid-cols-2">
+            <div className="overflow-hidden rounded-3xl border border-line bg-surface md:grid md:grid-cols-2">
               <div className="relative aspect-[16/11] md:aspect-auto">
                 <Image
                   src={page.proof.image}
@@ -136,11 +127,11 @@ export function ServicePage({ page }: { page: ServicePageData }) {
                 />
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-gradient-to-t from-void/70 via-transparent to-transparent"
+                  className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"
                 />
               </div>
               <div className="flex flex-col justify-center gap-5 p-8 md:p-12">
-                <h2 className="text-2xl font-medium tracking-tight text-cream md:text-3xl">
+                <h2 className="text-2xl font-medium tracking-tight text-paper md:text-3xl">
                   {page.proof.project}
                 </h2>
                 <p className="text-[15px] font-light leading-relaxed text-muted">
@@ -151,10 +142,10 @@ export function ServicePage({ page }: { page: ServicePageData }) {
                     href={page.proof.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 self-start text-sm font-medium text-cream"
+                    className="group inline-flex items-center gap-2 self-start text-sm font-medium text-paper"
                   >
                     Visit the live site
-                    <ArrowIcon className="h-4 w-4 text-bronze transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    <ArrowIcon className="h-4 w-4 text-signal transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </a>
                 )}
               </div>
@@ -163,11 +154,11 @@ export function ServicePage({ page }: { page: ServicePageData }) {
         </section>
 
         {/* ── Who it's for ───────────────────────────────────── */}
-        <section className="border-y border-line bg-sunk py-24 md:py-32">
+        <section className="border-y border-line bg-deep py-24 md:py-32">
           <div className="mx-auto max-w-content px-6 md:px-10">
             <Reveal>
               <SectionLabel>Who it&rsquo;s for</SectionLabel>
-              <h2 className="mt-6 max-w-2xl text-3xl font-medium leading-tight tracking-tight text-cream sm:text-4xl">
+              <h2 className="display mt-6 max-w-2xl text-[clamp(1.75rem,4.4vw,3rem)] text-paper">
                 If one of these is you, we should talk.
               </h2>
             </Reveal>
@@ -175,10 +166,10 @@ export function ServicePage({ page }: { page: ServicePageData }) {
             <RevealGroup className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
               {page.useCases.map((u) => (
                 <RevealItem key={u}>
-                  <div className="flex h-full items-start gap-4 bg-void px-7 py-6">
+                  <div className="flex h-full items-start gap-4 bg-ink px-7 py-6">
                     <span
                       aria-hidden
-                      className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-bronze"
+                      className="mt-[0.65em] h-0.5 w-3 shrink-0 bg-signal"
                     />
                     <p className="text-[15px] font-light leading-relaxed text-muted">
                       {u}
@@ -199,8 +190,8 @@ export function ServicePage({ page }: { page: ServicePageData }) {
           <RevealGroup className="mt-12 flex flex-col gap-px overflow-hidden rounded-2xl border border-line bg-line">
             {page.faq.map((f) => (
               <RevealItem key={f.q}>
-                <div className="bg-void px-7 py-8 md:px-10">
-                  <h3 className="text-lg font-medium tracking-tight text-cream md:text-xl">
+                <div className="bg-ink px-7 py-8 md:px-10">
+                  <h3 className="text-lg font-medium tracking-tight text-paper md:text-xl">
                     {f.q}
                   </h3>
                   <p className="mt-4 max-w-3xl text-[15px] font-light leading-relaxed text-muted">
@@ -219,14 +210,10 @@ export function ServicePage({ page }: { page: ServicePageData }) {
         </section>
 
         {/* ── Close ──────────────────────────────────────────── */}
-        <section className="relative overflow-hidden border-t border-line bg-umber px-6 py-24 md:px-10 md:py-32">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-bronze/15 blur-[130px]"
-          />
+        <section className="relative overflow-hidden border-t border-line bg-deep px-6 py-24 md:px-10 md:py-32">
           <div className="relative mx-auto max-w-content">
             <Reveal>
-              <h2 className="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tightest text-cream sm:text-5xl md:text-6xl">
+              <h2 className="display max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)] text-paper">
                 Tell me what you&rsquo;re trying to build.
               </h2>
               <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-muted">
@@ -239,14 +226,14 @@ export function ServicePage({ page }: { page: ServicePageData }) {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-bronze-lite to-[#d0b189] px-7 py-3.5 text-sm font-medium text-void transition-colors duration-300 hover:to-[#e0c39b] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-signal-deep px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.1em] text-paper transition-colors duration-300 hover:bg-signal active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal-hi focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
                 >
-                  Message on WhatsApp
+                  Start a project
                   <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="rounded-full border border-line bg-raised/40 px-6 py-3.5 text-sm font-light text-muted transition-colors hover:border-bronze hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze/60"
+                  className="rounded-full border border-line-hi px-7 py-4 text-[13px] font-medium text-muted transition-colors hover:border-paper hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper/60"
                 >
                   {profile.email}
                 </a>
@@ -255,7 +242,7 @@ export function ServicePage({ page }: { page: ServicePageData }) {
               <p className="mt-14 text-sm font-light text-faint">
                 <Link
                   href="/"
-                  className="text-muted underline decoration-line underline-offset-4 transition-colors hover:text-cream hover:decoration-bronze"
+                  className="text-muted underline decoration-line underline-offset-4 transition-colors hover:text-paper hover:decoration-signal"
                 >
                   See the rest of the work
                 </Link>
