@@ -38,7 +38,7 @@ export function About() {
 
         {/* Copy */}
         <Reveal delay={0.1} className="flex flex-col md:col-span-8">
-          <h2 className="display text-[clamp(1.6rem,4.2vw,3.2rem)] text-paper">
+          <h2 className="script text-[clamp(2.2rem,5.8vw,4.4rem)] text-paper">
             {about.headline.join(" ")}
           </h2>
 

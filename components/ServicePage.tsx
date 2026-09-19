@@ -10,7 +10,6 @@ import { Footer } from "./Footer";
 import { Grain } from "./Grain";
 import { SectionLabel } from "./SectionLabel";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
-import { SplitText } from "./motion";
 import { ArrowIcon } from "./icons";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -33,19 +32,18 @@ export function ServicePage({ page }: { page: ServicePageData }) {
               <SectionLabel>{page.eyebrow}</SectionLabel>
             </motion.div>
 
-            <h1 className="display mt-7 max-w-4xl text-[clamp(1.9rem,5.8vw,4.25rem)] text-paper">
-              <SplitText
-                trigger="mount"
-                delay={0.05}
-                text={page.h1.lineOne}
-                className="block"
-              />
-              <SplitText
-                trigger="mount"
-                delay={0.25}
-                text={page.h1.lineTwo}
-                className="block"
-              />
+            <h1 className="script mt-7 max-w-4xl text-[clamp(2.4rem,7.6vw,5.6rem)] text-paper">
+              {[page.h1.lineOne, page.h1.lineTwo].map((line, i) => (
+                <motion.span
+                  key={line}
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.9, ease, delay: 0.08 + i * 0.16 }}
+                  className="block"
+                >
+                  {line}
+                </motion.span>
+              ))}
             </h1>
 
             <motion.p
@@ -87,7 +85,7 @@ export function ServicePage({ page }: { page: ServicePageData }) {
           <div className="relative mx-auto max-w-content px-6 md:px-10">
             <Reveal>
               <SectionLabel>What gets built</SectionLabel>
-              <h2 className="display mt-6 max-w-2xl text-[clamp(1.5rem,3.6vw,2.5rem)] text-paper">
+              <h2 className="script mt-6 max-w-2xl text-[clamp(1.9rem,4.8vw,3.4rem)] text-paper">
                 Everything below is part of the build, not an upsell.
               </h2>
             </Reveal>
@@ -158,7 +156,7 @@ export function ServicePage({ page }: { page: ServicePageData }) {
           <div className="mx-auto max-w-content px-6 md:px-10">
             <Reveal>
               <SectionLabel>Who it&rsquo;s for</SectionLabel>
-              <h2 className="display mt-6 max-w-2xl text-[clamp(1.5rem,3.6vw,2.5rem)] text-paper">
+              <h2 className="script mt-6 max-w-2xl text-[clamp(1.9rem,4.8vw,3.4rem)] text-paper">
                 If one of these is you, we should talk.
               </h2>
             </Reveal>
@@ -213,7 +211,7 @@ export function ServicePage({ page }: { page: ServicePageData }) {
         <section className="relative overflow-hidden border-t border-line bg-deep px-6 py-24 md:px-10 md:py-32">
           <div className="relative mx-auto max-w-content">
             <Reveal>
-              <h2 className="display max-w-3xl text-[clamp(1.75rem,4.6vw,3.4rem)] text-paper">
+              <h2 className="script max-w-3xl text-[clamp(2.2rem,6vw,4.6rem)] text-paper">
                 Tell me what you&rsquo;re trying to build.
               </h2>
               <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-muted">

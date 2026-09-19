@@ -15,7 +15,7 @@ export function Testimonials() {
     >
       <div className="mx-auto max-w-content px-6 md:px-10">
         <Reveal className="flex flex-col items-center text-center">
-          <h2 className="display text-[clamp(1.6rem,4.4vw,3.4rem)] text-paper">
+          <h2 className="script text-[clamp(2.2rem,6vw,4.6rem)] text-paper">
             {testimonials.label}
           </h2>
           {/* Short centred mark in place of the left border the quote used

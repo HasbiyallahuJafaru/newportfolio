@@ -76,7 +76,9 @@ body {
   font-family: var(--font-script), Georgia, serif;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.16;
+  /* The face occupies 1.252em (ascender 0.851 + descender 0.401), so any
+     leading under that collides line to line. */
+  line-height: 1.28;
   text-transform: none;
 }
 

@@ -69,7 +69,7 @@ export function Work() {
     >
       <Reveal>
         <div className="flex items-end justify-between gap-6 pb-10">
-          <h2 className="display text-[clamp(1.6rem,4.4vw,3.4rem)] text-paper">
+          <h2 className="script text-[clamp(2.2rem,6vw,4.6rem)] text-paper">
             {work.label}
           </h2>
           <span className="display shrink-0 pb-2 text-lg text-signal">

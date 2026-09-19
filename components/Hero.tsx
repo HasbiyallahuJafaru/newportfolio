@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { hero } from "@/lib/content";
-import { SplitText } from "./motion";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -99,19 +98,21 @@ export function Hero() {
         className="relative z-10 mx-auto w-full max-w-content px-6 pb-16 pt-28 md:px-10 md:pb-20 md:pt-32"
       >
         <div className="max-w-5xl">
+          {/* Plain per-line fade. The old per-word mask clipped this face:
+              a connected script overhangs its advance width, and a box that
+              hides overflow on one axis hides it on both. */}
           <h1 className="script text-[clamp(2.75rem,7.6vw,6.5rem)] text-paper">
-            <SplitText
-              trigger="mount"
-              delay={0.08}
-              text={hero.lineOne}
-              className="block"
-            />
-            <SplitText
-              trigger="mount"
-              delay={0.26}
-              text={hero.lineTwo}
-              className="block"
-            />
+            {[hero.lineOne, hero.lineTwo].map((line, i) => (
+              <motion.span
+                key={line}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, ease: EASE, delay: 0.1 + i * 0.16 }}
+                className="block"
+              >
+                {line}
+              </motion.span>
+            ))}
           </h1>
 
           {/* The one rule that draws itself. It marks the line between the

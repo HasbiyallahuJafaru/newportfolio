@@ -41,7 +41,7 @@ export function Contact() {
     >
       <div className="mx-auto grid max-w-content gap-14 md:grid-cols-12 md:gap-12">
         <Reveal className="md:col-span-6">
-          <h2 className="display text-[clamp(1.9rem,5.2vw,4rem)] text-paper">
+          <h2 className="script text-[clamp(2.4rem,7vw,5.4rem)] text-paper">
             {contact.headline.join(" ")}
           </h2>
           <p className="mt-8 max-w-md text-base font-light leading-relaxed text-muted md:text-lg">

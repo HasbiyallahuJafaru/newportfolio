@@ -8,7 +8,6 @@
 // Each primitive degrades to a static render under `prefers-reduced-motion`.
 
 import {
-  Fragment,
   useRef,
   type CSSProperties,
   type ReactNode,
@@ -23,7 +22,6 @@ import {
   useSpring,
   useTransform,
   useVelocity,
-  type Variants,
 } from "framer-motion";
 
 /** Height-independent in-view trigger. A percentage threshold never fires for
@@ -54,69 +52,6 @@ export function ScrollProgress() {
       style={{ scaleX }}
       className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-signal"
     />
-  );
-}
-
-// ─────────────────────────────────────────────────────────────
-// SplitText — kinetic word reveal behind a per-word mask
-// ─────────────────────────────────────────────────────────────
-type SplitTextProps = {
-  text: string;
-  className?: string;
-  /** Extra classes on each animated word (e.g. gradient text fill). */
-  wordClassName?: string;
-  delay?: number;
-  stagger?: number;
-  /** "view" reveals on scroll into view; "mount" plays immediately. */
-  trigger?: "view" | "mount";
-};
-
-export function SplitText({
-  text,
-  className,
-  wordClassName,
-  delay = 0,
-  stagger = 0.045,
-  trigger = "view",
-}: SplitTextProps) {
-  const reduce = useReducedMotion();
-  const words = text.split(" ");
-
-  if (reduce) {
-    return <span className={className}>{text}</span>;
-  }
-
-  const container: Variants = {
-    hidden: {},
-    show: { transition: { staggerChildren: stagger, delayChildren: delay } },
-  };
-  const word: Variants = {
-    hidden: { y: "112%" },
-    show: { y: 0, transition: { duration: 0.9, ease: EASE } },
-  };
-
-  const play =
-    trigger === "mount"
-      ? { initial: "hidden" as const, animate: "show" as const }
-      : { initial: "hidden" as const, whileInView: "show" as const, viewport: VIEWPORT };
-
-  return (
-    <motion.span className={className} variants={container} {...play}>
-      {words.map((w, i) => (
-        <Fragment key={`${w}-${i}`}>
-          {/* The padding/margin pair gives ascenders and descenders room inside
-              the mask while cancelling out of the line box, so the author's
-              leading survives. Clipping is the classic split-text bug: with a
-              display line-height under 1 the glyphs get shaved. */}
-          <span className="inline-block overflow-hidden pt-[0.2em] pb-[0.34em] -mt-[0.2em] -mb-[0.34em] align-bottom">
-            <motion.span variants={word} className={`inline-block ${wordClassName ?? ""}`}>
-              {w}
-            </motion.span>
-          </span>
-          {i < words.length - 1 ? " " : null}
-        </Fragment>
-      ))}
-    </motion.span>
   );
 }
 
