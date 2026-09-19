@@ -22,6 +22,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Headings balance across their lines instead of leaving one word stranded;
+   body copy avoids a single-word last line. */
+.display,
+.script,
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 body {
   background-color: #0b0b0c;
   color: #f4f3f1;

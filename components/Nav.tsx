@@ -36,6 +36,35 @@ export function Nav() {
     if (Math.abs(dy) > 3) setHidden(y > 160 && dy > 0 && !open);
   });
 
+  // Which section the reader is in. IntersectionObserver rather than a scroll
+  // handler: it fires only when a section crosses the line, so there is no
+  // per-frame work. The band sits just above centre, which is where the eye
+  // actually is when deciding "what am I looking at".
+  const [active, setActive] = useState<string | null>(null);
+  useEffect(() => {
+    if (!isHome) return;
+
+    const ids = nav.map((item) => item.href.slice(1));
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (!sections.length) return;
+
+    const seen = new Map<string, boolean>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) seen.set(entry.target.id, entry.isIntersecting);
+        // Last match wins, so scrolling down hands over to the newer section.
+        const current = ids.filter((id) => seen.get(id)).pop() ?? null;
+        setActive(current);
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [isHome]);
+
   // Lock body scroll while the mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -80,12 +109,17 @@ export function Nav() {
               <Link
                 href={sectionHref(item.href)}
                 scroll={true}
-                className="group/link relative block py-1 text-[12px] font-medium uppercase tracking-[0.12em] text-muted transition-colors duration-200 hover:text-paper focus-visible:text-paper focus-visible:outline-none"
+                aria-current={active === item.href.slice(1) ? "true" : undefined}
+                className={`group/link relative block py-1 text-[12px] font-medium uppercase tracking-[0.12em] transition-colors duration-200 hover:text-paper focus-visible:text-paper focus-visible:outline-none ${
+                  active === item.href.slice(1) ? "text-paper" : "text-muted"
+                }`}
               >
                 {item.label}
                 <span
                   aria-hidden
-                  className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-signal transition-transform duration-300 ease-out group-hover/link:scale-x-100 group-focus-visible/link:scale-x-100"
+                  className={`absolute -bottom-0.5 left-0 h-px w-full origin-left bg-signal transition-transform duration-300 ease-out group-hover/link:scale-x-100 group-focus-visible/link:scale-x-100 ${
+                    active === item.href.slice(1) ? "scale-x-100" : "scale-x-0"
+                  }`}
                 />
               </Link>
             </li>
@@ -157,8 +191,17 @@ export function Nav() {
                     href={sectionHref(item.href)}
                     scroll={true}
                     onClick={() => setOpen(false)}
-                    className="block py-3 text-lg font-light text-muted transition-colors hover:text-paper"
+                    aria-current={active === item.href.slice(1) ? "true" : undefined}
+                    className={`flex items-center gap-3 py-3 text-lg font-light transition-colors hover:text-paper ${
+                      active === item.href.slice(1) ? "text-paper" : "text-muted"
+                    }`}
                   >
+                    <span
+                      aria-hidden
+                      className={`h-px bg-signal transition-all duration-300 ${
+                        active === item.href.slice(1) ? "w-6" : "w-0"
+                      }`}
+                    />
                     {item.label}
                   </Link>
                 </motion.li>
