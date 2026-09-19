@@ -98,8 +98,8 @@ export function Hero() {
         style={{ y, opacity }}
         className="relative z-10 mx-auto w-full max-w-content px-6 pb-16 pt-28 md:px-10 md:pb-20 md:pt-32"
       >
-        <div className="max-w-4xl">
-          <h1 className="display text-[clamp(2.5rem,8.6vw,6.25rem)] text-paper">
+        <div className="max-w-5xl">
+          <h1 className="script text-[clamp(2.75rem,7.6vw,6.5rem)] text-paper">
             <SplitText
               trigger="mount"
               delay={0.08}

@@ -25,8 +25,22 @@ const archivo = localFont({
   src: "./fonts/Archivo-Variable.woff2",
   variable: "--font-display",
   weight: "100 900",
+  // The width axis has to be declared on the @font-face or the browser treats
+  // the face as normal width and font-stretch does nothing.
+  declarations: [{ prop: "font-stretch", value: "62% 125%" }],
   display: "swap",
   fallback: ["DM Sans", "system-ui", "sans-serif"],
+});
+
+// Great Vibes (SIL OFL, licence in app/fonts/GreatVibes-OFL.txt). One weight,
+// no axes. It carries the hero line only: a connected script cannot set
+// section headings, indices or prices and stay readable.
+const greatVibes = localFont({
+  src: "./fonts/GreatVibes-Regular.ttf",
+  variable: "--font-script",
+  weight: "400",
+  display: "swap",
+  fallback: ["Georgia", "serif"],
 });
 
 // Title and description lead with the phrase people type when they are
@@ -107,7 +121,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${archivo.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${archivo.variable} ${greatVibes.variable}`}>
       <body>
         {/* Skip link — first focusable element for keyboard users */}
         <a

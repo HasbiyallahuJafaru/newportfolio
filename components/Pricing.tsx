@@ -13,7 +13,7 @@ export function Pricing() {
       <div className="mx-auto max-w-content px-6 md:px-10">
         <div className="grid gap-10 md:grid-cols-12 md:gap-12">
           <Reveal className="md:col-span-5">
-            <h2 className="display text-[clamp(2rem,5.4vw,4rem)] text-paper">
+            <h2 className="display text-[clamp(1.6rem,4.2vw,3.2rem)] text-paper">
               {pricing.headline.join(" ")}
             </h2>
             <p className="mt-7 max-w-md text-base font-light leading-relaxed text-muted">

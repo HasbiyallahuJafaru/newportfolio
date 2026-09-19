@@ -108,7 +108,7 @@ export function SplitText({
               the mask while cancelling out of the line box, so the author's
               leading survives. Clipping is the classic split-text bug: with a
               display line-height under 1 the glyphs get shaved. */}
-          <span className="inline-block overflow-hidden pt-[0.1em] pb-[0.22em] -mt-[0.1em] -mb-[0.22em] align-bottom">
+          <span className="inline-block overflow-hidden pt-[0.2em] pb-[0.34em] -mt-[0.2em] -mb-[0.34em] align-bottom">
             <motion.span variants={word} className={`inline-block ${wordClassName ?? ""}`}>
               {w}
             </motion.span>

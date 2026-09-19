@@ -68,7 +68,7 @@ export function Nav() {
           className="group flex items-center gap-2.5 text-paper"
         >
           <span className="inline-block h-2.5 w-2.5 bg-signal transition-transform duration-300 group-hover:scale-125" />
-          <span className="display text-base tracking-[-0.02em]">
+          <span className="display display-sm text-sm">
             {profile.shortName}
           </span>
         </Link>

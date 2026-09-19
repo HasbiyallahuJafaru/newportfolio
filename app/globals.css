@@ -49,30 +49,35 @@ body {
 
 /* ─────────────────────────────────────────────────────────────
    Display type
-   The headline face is a condensed grotesque carrying a lot of
-   weight, so it needs negative tracking and a leading under 1 to
-   read as one mass rather than a stack of words.
    ───────────────────────────────────────────────────────────── */
 .display {
   font-family: var(--font-display), var(--font-dm-sans), sans-serif;
-  font-weight: 700;
-  font-stretch: 88%;
-  letter-spacing: -0.045em;
-  line-height: 0.88;
+  /* Light and slightly expanded, with the tracking opened up. Heavy
+     condensed caps read as a poster; the same face at 300 with air between
+     the letters reads as a masthead. */
+  font-weight: 300;
+  font-stretch: 105%;
+  letter-spacing: 0.04em;
+  line-height: 1.04;
   text-transform: uppercase;
 }
 
-/* Outlined display type. Used once, behind the hero portrait, so the
-   headline can be enormous without competing with the face. */
-.display-outline {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(244, 243, 241, 0.16);
+/* Small display uses (wordmarks, indices) need proportionally more air than
+   a 100px headline does, or the tracking disappears. */
+.display-sm {
+  letter-spacing: 0.2em;
 }
 
-@supports not ((-webkit-text-stroke: 1px black)) {
-  .display-outline {
-    color: rgba(244, 243, 241, 0.1);
-  }
+/* Great Vibes. A connected script, so: never uppercased (the capitals do not
+   join and the word falls apart), tracking left at normal for the same
+   reason, and a tall leading because the swashes run well past the line box.
+   It also sets small for its point size, so it runs larger than the sans. */
+.script {
+  font-family: var(--font-script), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.16;
+  text-transform: none;
 }
 
 /* ─────────────────────────────────────────────────────────────
