@@ -22,6 +22,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Lenis takes over wheel scrolling when it is running; native smooth
+   scrolling would then animate every frame Lenis sets, and fight it. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+html.lenis {
+  scroll-behavior: auto;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 /* Headings balance across their lines instead of leaving one word stranded;
    body copy avoids a single-word last line. */
 .display,
@@ -138,6 +151,25 @@ body {
   to {
     transform: scaleX(1);
   }
+}
+
+/* Testimonial progress line. */
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* The brand's dot matrix as plain CSS: the fallback under the WebGL signal
+   field, and a quiet texture where a canvas would be too much. */
+.dot-grid {
+  background-image: radial-gradient(rgba(228, 50, 63, 0.28) 1px, transparent 1.4px);
+  background-size: 14px 14px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
 }
 
 @media (prefers-reduced-motion: reduce) {

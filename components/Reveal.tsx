@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { VIEWPORT } from "./motion";
 
 type RevealProps = {
@@ -12,6 +12,7 @@ type RevealProps = {
   /** Travel distance in px before settling */
   y?: number;
   as?: "div" | "section" | "li" | "span";
+  style?: CSSProperties;
 };
 
 /**
@@ -24,6 +25,7 @@ export function Reveal({
   delay = 0,
   y = 28,
   as = "div",
+  style,
 }: RevealProps) {
   const reduce = useReducedMotion();
   const MotionTag = motion[as];
@@ -44,6 +46,7 @@ export function Reveal({
   return (
     <MotionTag
       className={className}
+      style={style}
       variants={variants}
       initial="hidden"
       whileInView="show"

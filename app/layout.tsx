@@ -3,6 +3,7 @@ import { siteUrl } from "@/lib/site";
 import localFont from "next/font/local";
 import "./globals.css";
 import { profile } from "@/lib/content";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
 // Self-hosted DM Sans — no build-time network dependency.
 const dmSans = localFont({
@@ -129,6 +130,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <SmoothScroll />
         {children}
       </body>
     </html>

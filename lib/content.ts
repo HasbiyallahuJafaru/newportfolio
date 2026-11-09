@@ -205,18 +205,24 @@ export const testimonials = {
         "Hasbiyallahu delivered our website faster than expected and it looked better than we imagined. He genuinely understood what we needed and translated it perfectly.",
       author: "Foundation Director",
       org: "Credible Hope Foundation",
+      project: "Non-profit website",
+      image: "/images/work-crediblehope.jpg",
     },
     {
       quote:
         "The booking platform transformed our workflow completely. Clean, reliable, and our customers love how easy it is to use.",
       author: "Operations Manager",
       org: "InBookings Online",
+      project: "Booking platform",
+      image: "/images/work-inbookings.jpg",
     },
     {
       quote:
         "Our Telegram bot doubled our sales processing speed. The Paystack integration was seamless. Customers pay and receive receipts without any manual effort.",
       author: "Business Owner",
       org: "E-Commerce Client",
+      project: "Telegram sales bot",
+      image: "/images/work-salesbot.jpg",
     },
   ],
 };

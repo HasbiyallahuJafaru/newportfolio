@@ -8,13 +8,16 @@
 // Each primitive degrades to a static render under `prefers-reduced-motion`.
 
 import {
+  useEffect,
   useRef,
   type CSSProperties,
   type ReactNode,
 } from "react";
 import {
+  animate,
   motion,
   useAnimationFrame,
+  useInView,
   useMotionTemplate,
   useMotionValue,
   useReducedMotion,
@@ -247,5 +250,38 @@ export function VelocityMarquee({
         </div>
       ))}
     </motion.div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// CountUp — a stat counts up from zero the first time it is seen.
+// Server-renders the final value, so crawlers and no-JS readers get the
+// real number; only the animation is client-side.
+// ─────────────────────────────────────────────────────────────
+export function CountUp({ value, className }: { value: string; className?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const reduce = useReducedMotion();
+  const inView = useInView(ref, { once: true, margin: "0px 0px -60px 0px" });
+  const match = value.match(/^(\d+)(.*)$/);
+
+  useEffect(() => {
+    if (!inView || reduce || !match || !ref.current) return;
+    const el = ref.current;
+    const target = Number(match[1]);
+    const controls = animate(0, target, {
+      duration: 1.6,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => {
+        el.textContent = `${Math.round(v)}${match[2]}`;
+      },
+    });
+    return () => controls.stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView, reduce]);
+
+  return (
+    <span ref={ref} className={`tabular-nums ${className ?? ""}`}>
+      {value}
+    </span>
   );
 }
