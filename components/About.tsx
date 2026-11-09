@@ -71,9 +71,9 @@ function ProfileCard() {
         />
       </div>
 
-      <h3 className="mt-6 text-[1.9rem] font-medium leading-tight tracking-tight text-paper">
+      <p className="mt-6 text-[1.9rem] font-medium leading-tight tracking-tight text-paper">
         {profile.name}
-      </h3>
+      </p>
       <p className="mt-2 text-lg font-light text-muted">{profile.role}</p>
 
       <ul className="mt-5 flex flex-wrap gap-2">

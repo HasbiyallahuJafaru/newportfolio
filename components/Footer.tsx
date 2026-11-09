@@ -49,6 +49,12 @@ export function Footer() {
                   {page.linkLabel}
                 </Link>
               ))}
+              <Link
+                href="/website-design-price-nigeria"
+                className="text-sm font-light text-muted transition-colors hover:text-paper"
+              >
+                Website design prices in Nigeria
+              </Link>
             </nav>
 
             {/* Navigate — hidden on mobile */}

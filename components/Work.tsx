@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
 import CircularCarousel, { type CircularCarouselHandle } from "./CircularCarousel";
 import { work } from "@/lib/content";
 import { ArrowIcon, ArrowRightIcon } from "./icons";
@@ -10,8 +10,12 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 type CarouselHandle = CircularCarouselHandle;
 
+// The ring draws plain <img> tags, so route them through Next's optimiser by
+// hand: a 1080px WebP/AVIF instead of the 1440px source JPEG.
+const optimised = (src: string) => `/_next/image?url=${encodeURIComponent(src)}&w=1080&q=70`;
+
 const items = work.items.map((item) => ({
-  src: item.image,
+  src: optimised(item.image),
   alt: item.imageAlt,
   title: item.title,
   subtitle: item.category,
@@ -23,6 +27,10 @@ const items = work.items.map((item) => ({
 // all ten stay readable and reachable without touching the ring.
 export function Work() {
   const ring = useRef<CarouselHandle>(null);
+  const section = useRef<HTMLElement>(null);
+  // The ring preloads every image as it mounts, so hold it back until the
+  // section is close, keeping ten screenshots off the first page load.
+  const near = useInView(section, { once: true, margin: "800px 0px" });
   const [active, setActive] = useState(0);
   const reduce = useReducedMotion();
   const current = work.items[active];
@@ -36,6 +44,7 @@ export function Work() {
   return (
     <section
       id="work"
+      ref={section}
       className="relative scroll-mt-0 overflow-hidden border-t border-line bg-ink md:h-[100svh] md:min-h-[760px]"
     >
       <div
@@ -61,6 +70,7 @@ export function Work() {
 
       {/* Ring */}
       <div className="relative h-[40svh] min-h-[260px] md:absolute md:inset-x-0 md:bottom-[24%] md:top-[15%] md:h-auto">
+        {near && (
         <CircularCarousel
           ref={ring}
           items={items}
@@ -80,6 +90,7 @@ export function Work() {
           onItemClick={(_, index) => open(index)}
           style={{ color: "#f4f3f1" }}
         />
+        )}
       </div>
 
       {/* Front project */}

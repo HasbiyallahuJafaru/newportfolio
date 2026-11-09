@@ -202,7 +202,7 @@ export const servicePages: ServicePage[] = [
     metaDescription:
       "Hire a Kaduna-based website designer. Business sites built to rank on Google, load fast on mobile and bring in calls. Fixed quotes from $500.",
     eyebrow: "Website Design · Kaduna",
-    h1: { lineOne: "Websites for Kaduna", lineTwo: "businesses that sell." },
+    h1: { lineOne: "Website designer in Kaduna,", lineTwo: "for businesses that sell." },
     intro:
       "Most web design in Kaduna is a template, a logo dropped in, and an invoice. What you want is a site a stranger can land on from Google, understand in one screen and contact you from. I am based here, I have built for businesses on this side of the country, and you can go and look at them.",
     priceFrom: "$500",

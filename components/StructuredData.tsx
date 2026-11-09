@@ -24,8 +24,8 @@ export function StructuredData() {
       // Verified Google Business Profile. The ?cid= link is Google's permanent
       // form for a listing — it cannot rot the way /maps/place URLs do.
       "https://maps.google.com/?cid=16756116904915581439",
+      "https://github.com/HasbiyallahuJafaru",
     ],
-    // ponytail: no socials listed yet — add LinkedIn/GitHub/Twitter when they exist
     knowsAbout: [
       "Web Design",
       "Website Design in Kaduna",

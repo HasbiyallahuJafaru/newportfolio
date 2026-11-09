@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { pricing, whatsappUrl } from "@/lib/content";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import { ArrowRightIcon, CheckIcon } from "./icons";
@@ -64,7 +65,12 @@ export function Pricing() {
                 </div>
               </div>
             </SpotlightCard>
-            <p className="mt-5 text-[13px] font-light text-faint">{pricing.footnote}</p>
+            <p className="mt-5 text-[13px] font-light text-faint">
+              {pricing.footnote}{" "}
+              <Link href="/website-design-price-nigeria" className="text-muted underline decoration-line-hi underline-offset-4 transition-colors hover:text-paper">
+                See the full price guide for Nigeria
+              </Link>
+            </p>
           </Reveal>
 
           {/* Headline and what's included. */}
